@@ -1,29 +1,173 @@
-<div id="carouselExampleAutoplaying" 
-     class="carousel slide"
-     data-bs-ride="carousel"
-     data-bs-interval="3000"
-     style="width:100%; background: linear-gradient(135deg, #b22222, #ff8c00, #ffd700); padding:20px; border-radius:15px;">
+<style>
+:root {
+  --rojo: #8b0000;
+  --rojo-oscuro: #2c0a0a;
+  --dorado: #ffd700;
+  --blanco: #ffffff;
+}
 
+/* Títulos */
+.section-title {
+  text-align: center;
+  color: var(--dorado);
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+/* Secciones */
+.section {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, var(--rojo-oscuro), var(--rojo));
+}
+
+/* Cards */
+.card-custom {
+  background: rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 25px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.card-custom:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  gap: 25px;
+}
+
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Texto */
+.card-custom h3 {
+  color: var(--dorado);
+  margin-bottom: 10px;
+}
+
+.card-custom p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Carousel */
+.carousel img {
+  border-radius: 15px;
+  object-fit: cover;
+  height: 400px;
+}
+
+/* Reviews */
+.review-card {
+  background: linear-gradient(135deg, #ffd700, #ff8c00);
+  color: #2c0a0a;
+  border-radius: 20px;
+  padding: 25px;
+}
+
+/* Ubicaciones */
+.location-card {
+  border: 1px solid rgba(255,215,0,0.3);
+}
+</style>
+
+<!-- TITULO -->
+<h2 class="section-title">🍕 Nuestras Especialidades</h2>
+
+<!-- CAROUSEL -->
+<div id="carouselExampleAutoplaying" class="carousel slide mb-5" data-bs-ride="carousel">
   <div class="carousel-inner">
+
     <div class="carousel-item active">
-      <img src="assets/descarga.jpg" class="d-block w-100" alt="Pizza 1">
+      <img src="assets/pizza-muzarella.png" class="d-block w-100">
     </div>
 
     <div class="carousel-item">
-      <img src="assets/descarga (1).jpg" class="d-block w-100" alt="Pizza 2">
+      <img src="assets/pizza-de-salchichones-30402134.webp" class="d-block w-100">
     </div>
 
     <div class="carousel-item">
-      <img src="assets/descarga (2).jpg" class="d-block w-100" alt="Pizza 3">
+      <img src="assets/deliciosa-pizza-jamon-setas_191095-84336.avif" class="d-block w-100">
     </div>
+
   </div>
-
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </button>
-
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </button>
-
 </div>
+
+<!-- ESPECIALIDADES -->
+<section class="section">
+  <div class="grid grid-3">
+
+    <div class="card-custom">
+      <h3>🍕 Pizza Especial</h3>
+      <p>Jamón crudo, morcilla, aceitunas negras y muzzarella. <strong>Explosión de sabor.</strong></p>
+    </div>
+
+    <div class="card-custom">
+      <h3>🌶️ Pepperoni</h3>
+      <p>Pepperoni italiano y queso extra. <strong>Para amantes del picante.</strong></p>
+    </div>
+
+    <div class="card-custom">
+      <h3>🧀 Muzzarella</h3>
+      <p>Muzzarella fresca y tomate. <strong>Clásico napolitano.</strong></p>
+    </div>
+
+  </div>
+</section>
+
+<!-- RESEÑAS -->
+<section class="section">
+  <h2 class="section-title">💬 Opiniones</h2>
+
+  <div class="grid grid-3">
+
+    <div class="review-card">
+      <h4>María González</h4>
+      <p>"La mejor pizza que probé."</p>
+      <strong>10/10</strong>
+    </div>
+
+    <div class="review-card">
+      <h4>Carlos Ramírez</h4>
+      <p>"Pepperoni perfecto."</p>
+      <strong>9/10</strong>
+    </div>
+
+    <div class="review-card">
+      <h4>Laura Pérez</h4>
+      <p>"Calidad napolitana."</p>
+      <strong>10/10</strong>
+    </div>
+
+  </div>
+</section>
+
+<!-- LOCALES -->
+<section class="section">
+  <h2 class="section-title">📍 Nuestros locales</h2>
+
+  <div class="grid grid-3">
+
+    <div class="card-custom location-card">
+      <h3>Centro Comercial</h3>
+      <p>Av. Principal 123</p>
+    </div>
+
+    <div class="card-custom location-card">
+      <h3>Local Principal</h3>
+      <p>San Martín 734</p>
+    </div>
+
+    <div class="card-custom location-card">
+      <h3>Zona Norte</h3>
+      <p>Av. Norte 456</p>
+    </div>
+
+  </div>
+</section>

@@ -1,1 +1,221 @@
-<p>productos works!</p>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.card {
+    background: white;
+    width: 260px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card h3 {
+    margin: 0 0 10px;
+}
+
+.card p {
+    font-size: 14px;
+    color: #555;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #e63946;
+    color: white;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #c92c3a;
+}
+</style>
+
+<body>
+
+<!-- 15 TARJETAS -->
+
+<div class="card">
+<img src="assets/muzarella">
+<div class="card-content">
+<h3>Muzzarella</h3>
+<p>Clásica con salsa y queso.</p>
+<div class="price">$3500</div>
+<button>Comprar</button>
+</div>
+</div>
+
+<div class="card">
+<img src="assets/peperonni">
+<div class="card-content">
+<h3>Pepperoni</h3>
+<p>Con abundante pepperoni.</p>
+<div class="price">$4200</div>
+<button>Comprar</button>
+</div>
+</div>
+
+<div class="card">
+<img src="assets/vegetariana">
+<div class="card-content">
+<h3>Vegetariana</h3>
+<p>Verduras frescas variadas.</p>
+<div class="price">$3900</div>
+<button>Comprar</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://source.unsplash.com/300x200/?pizza,ham">
+<div class="card-content">
+<h3>Jamón</h3>
+<p>Con jamón cocido y queso.</p>
+<div class="price">$3800</div>
+<button>Comprar</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://source.unsplash.com/300x200/?pizza,bacon">
+<div class="card-content">
+<h3>Bacon</h3>
+<p>Con panceta crocante.</p>
+<div class="price">$4500</div>
+<button>Comprar</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://source.unsplash.com/300x200/?pizza,bbq">
+<div class="card-content">
+<h3>BBQ</h3>
+<p>Pollo con salsa barbacoa.</p>
+<div class="price">$4600</div>
+<button>Comprar</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://source.unsplash.com/300x200/?pizza,cheese,extra">
+<div class="card-content">
+<h3>4 Quesos</h3>
+<p>Mezcla de quesos intensos.</p>
+<div class="price">$4400</div>
+<button>Comprar</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://source.unsplash.com/300x200/?pizza,spicy">
+<div class="card-content">
+<h3>Picante</h3>
+<p>Con toque de ají picante.</p>
+<div class="price">$4300</div>
+<button>Comprar</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://source.unsplash.com/300x200/?pizza,olive">
+<div class="card-content">
+<h3>Aceitunas</h3>
+<p>Con aceitunas negras.</p>
+<div class="price">$3700</div>
+<button>Comprar</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://source.unsplash.com/300x200/?pizza,mushroom">
+<div class="card-content">
+<h3>Champiñones</h3>
+<p>Con champiñones frescos.</p>
+<div class="price">$4100</div>
+<button>Comprar</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://source.unsplash.com/300x200/?pizza,chicken">
+<div class="card-content">
+<h3>Pollo</h3>
+<p>Con pollo grillado.</p>
+<div class="price">$4200</div>
+<button>Comprar</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://source.unsplash.com/300x200/?pizza,sausage">
+<div class="card-content">
+<h3>Salchicha</h3>
+<p>Con salchicha italiana.</p>
+<div class="price">$4300</div>
+<button>Comprar</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://source.unsplash.com/300x200/?pizza,onion">
+<div class="card-content">
+<h3>Cebolla</h3>
+<p>Con cebolla caramelizada.</p>
+<div class="price">$3600</div>
+<button>Comprar</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://source.unsplash.com/300x200/?pizza,seafood">
+<div class="card-content">
+<h3>Mariscos</h3>
+<p>Con mix de mariscos.</p>
+<div class="price">$5000</div>
+<button>Comprar</button>
+</div>
+</div>
+
+<div class="card">
+<img src="https://source.unsplash.com/300x200/?pizza,italian">
+<div class="card-content">
+<h3>Napolitana</h3>
+<p>Tomate, ajo y albahaca.</p>
+<div class="price">$3900</div>
+<button>Comprar</button>
+</div>
+</div>
+
+</body>
+
