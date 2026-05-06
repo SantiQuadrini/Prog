@@ -1,16 +1,16 @@
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg border-bottom border-body"
-     style="width:100%; background: linear-gradient(90deg, #2c0a0a, #8b0000, #b22222); margin-bottom:0;"
-     data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg border-bottom"
+     style="width:100%; background: linear-gradient(90deg, #ffffff, #f8f9fa); box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom:0;"
+     data-bs-theme="light">
 
   <div class="container-fluid">
     
-    <a class="navbar-brand" routerLink="/inicio">
-      🍕 Pizzería Don Luigi Il Conto Porfavore
+    <a class="navbar-brand fw-bold fs-4" routerLink="/inicio" style="color: #2c3e50;">
+      🍕 Pizzería Don Luigi
     </a>
     
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
-      <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            style="box-shadow: none;">
+      <span class="navbar-toggler-icon" style="filter: grayscale(100%);"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -18,27 +18,48 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         
         <li class="nav-item">
-          <a class="nav-link active" routerLink="/inicio">Inicio</a>
+          <a class="nav-link active px-3 py-2 rounded-pill" 
+             routerLink="/inicio" 
+             style="color: #495057; font-weight: 500; transition: all 0.3s ease;">
+            Inicio
+          </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link active" routerLink="/Productos">Menú</a>
+          <a class="nav-link px-3 py-2 rounded-pill" 
+             routerLink="/Productos" 
+             style="color: #495057; font-weight: 500; transition: all 0.3s ease;">
+            Menú
+          </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" routerLink="/contactos">Contacto</a>
+          <a class="nav-link px-3 py-2 rounded-pill" 
+             routerLink="/contactos" 
+             style="color: #495057; font-weight: 500; transition: all 0.3s ease;">
+            Contacto
+          </a>
         </li>
 
       </ul>
 
       <!-- BUSCADOR -->
       <form class="d-flex me-3" role="search">
-        <input class="form-control me-2" type="search" placeholder="Buscar pizza...">
-        <button class="btn btn-outline-warning" type="submit">Buscar</button>
+        <input class="form-control me-2 shadow-sm border-0" 
+               type="search" 
+               placeholder="Buscar pizza..."
+               style="background: #f8f9fa; border-radius: 25px; padding: 10px 20px;">
+        <button class="btn btn-outline-secondary border-0 shadow-sm px-4" 
+                type="submit"
+                style="border-radius: 25px;">
+          🔍
+        </button>
       </form>
 
       <!-- BOTON LOGIN -->
-      <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#loginModal">
+      <button class="btn btn-outline-primary shadow-sm px-4 fw-semibold" 
+              data-bs-toggle="modal" data-bs-target="#loginModal"
+              style="border-radius: 25px; border: 1px solid #dee2e6; transition: all 0.3s ease;">
         Iniciar sesión
       </button>
 
@@ -48,36 +69,39 @@
 
 <!-- MODAL LOGIN -->
 <div class="modal fade" id="loginModal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0 shadow-lg" style="border-radius: 16px;">
 
-      <div class="modal-header">
-        <h5 class="modal-title">Iniciar sesión</h5>
+      <div class="modal-header border-0 pb-3">
+        <h5 class="modal-title fw-bold" style="color: #2c3e50;">Iniciar sesión</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
 
-      <div class="modal-body">
-
+      <div class="modal-body px-4 py-3">
         <form>
-          <div class="mb-3">
-            <label>Email</label>
-            <input type="email" class="form-control" placeholder="ejemplo@gmail.com">
+          <div class="mb-4">
+            <label class="form-label fw-semibold mb-2" style="color: #495057;">Email</label>
+            <input type="email" class="form-control shadow-sm border-0 py-2" 
+                   placeholder="ejemplo@gmail.com"
+                   style="border-radius: 12px; background: #f8f9fa;">
           </div>
 
-          <div class="mb-3">
-            <label>Contraseña</label>
-            <input type="password" class="form-control" placeholder="********">
+          <div class="mb-4">
+            <label class="form-label fw-semibold mb-2" style="color: #495057;">Contraseña</label>
+            <input type="password" class="form-control shadow-sm border-0 py-2" 
+                   placeholder="********"
+                   style="border-radius: 12px; background: #f8f9fa;">
           </div>
 
-          <button type="submit" class="btn btn-danger w-100">
+          <button type="submit" class="btn w-100 shadow-sm fw-semibold py-2"
+                  style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; border-radius: 12px; color: white;">
             Entrar
           </button>
         </form>
-
       </div>
 
-      <div class="modal-footer">
-        <small>¿No tenés cuenta? Registrate</small>
+      <div class="modal-footer border-0 pb-4 px-4">
+        <small class="text-muted">¿No tienes cuenta? <span style="color: #667eea; font-weight: 500;">Regístrate</span></small>
       </div>
 
     </div>
