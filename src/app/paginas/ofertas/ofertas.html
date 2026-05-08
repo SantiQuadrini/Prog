@@ -1,1 +1,24 @@
-<p>ofertas works!</p>
+<div class="productos-container">
+  @for(p of Productos; track p.id){
+    <div class="producto-card" [class.inactivo]="!p.disponibilidad">
+      <div class="producto-imagen">
+        <img src="{{p.imagen}}" alt="{{p.nombre}}">
+      </div>
+      <div class="producto-info">
+        <h3 class="producto-nombre">{{p.nombre}}</h3>
+        <h4 class="producto-precio">${{p.precio}}</h4>
+        <p class="producto-descripcion">{{p.informacion}}</p>
+    
+        @if(p.disponibilidad) {
+          <button type="button" class="btn-compra">
+            agregar al carrito
+          </button>
+        } @else {
+          <button type="button" class="btn-sin-stock" disabled>
+            SIN STOCK
+          </button>
+        }
+      </div>
+    </div>
+  }
+</div>
