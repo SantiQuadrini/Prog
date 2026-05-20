@@ -164,3 +164,117 @@
   color: white;
   cursor: not-allowed;
 }
+/* 🧡 BOTÓN FAVORITO (ESQUINA IMAGEN) */
+.btn-favorito {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.btn-favorito i {
+  font-size: 1.3rem;
+  color: #e74c3c;
+  transition: all 0.3s ease;
+}
+
+.btn-favorito:not(.active) i {
+  color: #ccc;
+}
+
+.btn-favorito:hover {
+  transform: scale(1.1);
+}
+
+/* 🧡 BOTÓN FAVORITO (AL LADO DEL BOTÓN) */
+.btn-favorito-card {
+  background: transparent;
+  border: 2px solid #e74c3c;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.btn-favorito-card i {
+  font-size: 1.2rem;
+  color: #e74c3c;
+}
+
+.btn-favorito-card:not(.active) i {
+  color: #e74c3c;
+}
+
+.btn-favorito-card.active {
+  background: #e74c3c;
+}
+
+.btn-favorito-card.active i {
+  color: white;
+}
+
+.btn-favorito-card:hover {
+  background: #e74c3c;
+}
+
+.btn-favorito-card:hover i {
+  color: white;
+}
+.producto-imagen {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.producto-imagen img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.btn-favorito {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: transform 0.2s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-favorito:hover {
+  transform: scale(1.1);
+}
+
+.btn-favorito:active {
+  transform: scale(0.95);
+}
+
+.star-icon {
+  line-height: 1;
+}
+
+
+

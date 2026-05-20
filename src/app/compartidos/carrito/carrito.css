@@ -1,0 +1,88 @@
+/* Contenedor con sombra y borde redondeado */
+.table-container {
+  overflow-x: auto;
+  box-shadow: 0 10px 30px rgba(249, 115, 22, 0.3);
+  border-radius: 12px;
+}
+
+table.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background-color: #fff;
+  border: 1px solid #fed7aa;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Encabezado */
+table.table thead th {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); /* Naranja vivo */
+  color: white;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 16px 20px;
+  font-size: 0.85rem;
+  border-right: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Quitar borde derecho última columna header */
+table.table thead th:last-child {
+  border-right: none;
+}
+
+/* Celdas */
+table.table td {
+  padding: 14px 20px;
+  color: #431407; /* Marrón oscuro para buen contraste */
+  border-bottom: 1px solid #fed7aa; /* Naranja muy suave */
+  font-weight: 500;
+}
+
+/* Primera columna (nth) */
+table.table th[scope="row"] {
+  background-color: #fff7ed; /* Naranja muy claro */
+  color: #ea580c;
+  font-weight: 700;
+  border-right: 2px solid #fed7aa;
+}
+
+/* Hover filas */
+table.table tbody tr {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+table.table tbody tr::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: transparent;
+  transition: all 0.25s ease;
+}
+
+table.table tbody tr:hover {
+  background-color: #fff7ed;
+  transform: scale(1.01);
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.15);
+}
+
+table.table tbody tr:hover::before {
+  background-color: #f97316; /* Barra naranja lateral */
+}
+
+/* Última fila sin borde inferior */
+table.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Encabezado columna @mdo - especial */
+table.table tbody tr:hover td:last-child {
+  color: #f97316;
+  font-weight: 700;
+}

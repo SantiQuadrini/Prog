@@ -5,7 +5,7 @@
   <div class="container-fluid">
     
     <a class="navbar-brand fw-bold fs-4" routerLink="/inicio" style="color: #e74c3c;">
-      🍕 Pizzería Don Luigi
+      🍕
     </a>
     
     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -33,12 +33,11 @@
           </a>
         </li>
 
-        <!-- NUEVA SECCION OFERTAS -->
         <li class="nav-item">
           <a class="nav-link px-3 py-2 rounded-pill position-relative" 
              routerLink="/Ofertas" 
              style="
-               background: linear-gradient(135deg, #ff6b6b, #ff3b3b);
+               background: linear-gradient(135deg, #ff8000 0%, #ff1500 100%);
                color: white;
                font-weight: 600;
                transition: all 0.3s ease;
@@ -72,16 +71,39 @@
         </button>
       </form>
 
+      <!-- 🛒 BOTÓN CARRITO (ANTES DE LOGIN) -->
+      <a routerLink="/Carrito" 
+         class="btn me-2 position-relative"
+         style="
+           background: transparent;
+           color: #e74c3c;
+           border: 2px solid #e74c3c;
+           border-radius: 25px;
+           padding: 8px 16px;
+           font-weight: 600;
+           transition: all 0.3s ease;
+         ">
+        <i class="bi bi-cart3"></i>
+        <span class="d-none d-md-inline ms-1">Carrito</span>
+        <!-- CONTADOR -->
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill"
+              style="background: #fd7e14; font-size: 0.7rem;">
+          0
+        </span>
+      </a>
+
       <!-- BOTON LOGIN -->
-      <button class="btn btn-outline-primary shadow-sm px-4 fw-semibold" 
-              data-bs-toggle="modal" data-bs-target="#loginModal"
-              style="
-                border-radius: 25px;
-                border: 1px solid #dee2e6;
-                transition: all 0.3s ease;
-              ">
-        Iniciar sesión
-      </button>
+      <button class="btn shadow-sm px-4 fw-semibold" 
+        data-bs-toggle="modal" 
+        data-bs-target="#loginModal"
+        style="
+          border-radius: 25px;
+          background-color: #fd7e14;
+          border-color: #fd7e14;
+          color: white;
+        ">
+  Iniciar sesión
+</button>
 
     </div>
   </div>
@@ -93,7 +115,7 @@
     <div class="modal-content border-0 shadow-lg" style="border-radius: 16px;">
 
       <div class="modal-header border-0 pb-3">
-        <h5 class="modal-title fw-bold" style="color: #2c3e50;">
+        <h5 class="modal-title fw-bold" style="color: #ff6a00;">
           Iniciar sesión
         </h5>
 
@@ -128,7 +150,7 @@
           <button type="submit"
                   class="btn w-100 shadow-sm fw-semibold py-2"
                   style="
-                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                    background: linear-gradient(135deg, #ff8000 0%, #ff1500 100%);
                     border: none;
                     border-radius: 12px;
                     color: white;
@@ -142,7 +164,7 @@
       <div class="modal-footer border-0 pb-4 px-4">
         <small class="text-muted">
           ¿No tienes cuenta?
-          <span style="color: #667eea; font-weight: 500;">
+          <span style="color: #ff4d00; font-weight: 500;">
             Regístrate
           </span>
         </small>
