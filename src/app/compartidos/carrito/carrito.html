@@ -1,24 +1,49 @@
-<div class="table-container">
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col" class="col-id">ID</th>
-        <th scope="col" class="col-img">Imagen</th>
-        <th scope="col" class="col-nombre">Nombre</th>
-        <th scope="col" class="col-cantidad">Cantidad</th>
-        <th scope="col" class="col-precio">Precio</th>
-        <th scope="col" class="col-desc">Descripción</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td class="nombre-producto">Producto Alpha</td>
-        <td class="cantidad-producto">25</td>
-        <td class="precio-producto">$1,200.00</td>
-        <td class="descripcion-producto">Descripción breve del producto</td>
-      </tr>
-      
-    </tbody>
-  </table>
+<div class="carrito-container">
+  <h2 class="carrito-titulo">🛒 Mi Carrito</h2>
+  
+  <div class="tabla-responsive">
+    <table class="carrito-tabla">
+      <thead>
+        <tr>
+          <th class="col-img">Img</th>
+          <th class="col-producto">Producto</th>
+          <th class="col-precio">Precio</th>
+          <th class="col-cantidad">Cantidad</th>
+          <th class="col-subtotal">Subtotal</th>
+          <th class="col-acciones">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for(p of prodCarro; track p.id){
+          <tr>
+            <td class="col-img">
+              <img [src]="p.imagen" [alt]="p.nombre" class="producto-img" />
+            </td>
+            <td class="col-producto">
+              <span class="producto-nombre">{{ p.nombre }}</span>
+            </td>
+            <td class="col-precio">
+              <span class="precio-unitario">${{ p.precio }}</span>
+            </td>
+            <td class="col-cantidad">
+              <div class="cantidad-control">
+                <button type="button" class="btn-cant" (click)="disminuir(p.id)">−</button>
+                <span class="cantidad-valor">{{ p.cantidad }}</span>
+                <button type="button" class="btn-cant" (click)="aumentar(p.id)">+</button>
+              </div>
+            </td>
+            <td class="col-subtotal">
+              <span class="precio-subtotal">${{ p.precio * p.cantidad }}</span>
+            </td>
+            <td class="col-acciones">
+              <button type="button" class="btn-eliminar" (click)="eliminar(p.id)">
+                🗑️
+              </button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+  
 </div>

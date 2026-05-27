@@ -86,3 +86,117 @@ table.table tbody tr:hover td:last-child {
   color: #f97316;
   font-weight: 700;
 }
+/* --- Contenedor Principal --- */
+.table-container {
+  overflow-x: auto; /* Permite desplazamiento horizontal en móviles */
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 100%;
+}
+
+/* --- Tabla --- */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px; /* Asegura que la tabla no se aplaste demasiado */
+}
+
+.table thead tr {
+  background-color: #343a40; /* Color oscuro para el header */
+  color: #ffffff;
+  text-align: left;
+}
+
+.table th, .table td {
+  padding: 15px;
+  border-bottom: 1px solid #dee2e6;
+  vertical-align: middle;
+}
+
+/* --- Header Específico (Opcional) --- */
+.col-id, .col-img, .col-nombre, .col-cantidad, .col-precio, .col-desc {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+}
+
+/* --- Filas del Cuerpo (Hover effect) --- */
+.table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+/* --- Imágenes --- */
+.table td img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #dee2e6;
+}
+
+/* --- Botones de Acción --- */
+button[class^="btn-"] {
+  border: none;
+  padding: 8px 12px;
+  margin: 0 2px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #fff;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+/* Botón Aumentar (Verde) */
+.btn-aumentar {
+  background-color: #28a745;
+}
+.btn-aumentar:hover {
+  background-color: #218838;
+  transform: translateY(-1px);
+}
+
+/* Botón Disminuir (Naranja/Amarillo) */
+.btn-disminuir {
+  background-color: #ffc107;
+  color: #212529;
+}
+.btn-disminuir:hover {
+  background-color: #e0a800;
+  transform: translateY(-1px);
+}
+
+/* Botón Eliminar (Rojo) */
+.btn-eliminar {
+  background-color: #dc3545;
+}
+.btn-eliminar:hover {
+  background-color: #c82333;
+  transform: translateY(-1px);
+}
+
+/* --- Estilos para móviles pequeños (Opcional) --- */
+@media (max-width: 600px) {
+  .table th, .table td {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+  .table td img {
+    width: 30px;
+    height: 30px;
+  }
+}
+/* --- Imagen del Producto (MÁS PEQUEÑA) --- */
+.producto-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 2px solid var(--color-border);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

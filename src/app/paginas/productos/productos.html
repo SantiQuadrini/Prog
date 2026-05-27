@@ -16,7 +16,7 @@
         <p class="producto-descripcion">{{p.informacion}}</p>
     
         @if(p.disponibilidad) {
-          <button type="button" class="btn-compra">
+          <button type="button" class="btn-compra" (click)="agregarProducto(p)">
             agregar al carrito
           </button>
         } @else {

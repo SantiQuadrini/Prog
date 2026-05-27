@@ -3,10 +3,11 @@ import { Inicio,  }from'./paginas/inicio/inicio';
 import { Productos, }from'./paginas/productos/productos';
 import { Ofertas } from './paginas/ofertas/ofertas';
 import { Contactos } from './paginas/contactos/contactos';
-import { Carrito } from './compartidos/carrito/carrito';
+
 import { Favoritos } from './compartidos/favoritos/favoritos';
 import { InicioSesion } from './auth/inicio-sesion/inicio-sesion';
 import { Registro } from './auth/registro/registro';
+import { Carrito } from './compartidos/carrito/carrito';
 
 export const routes: Routes = [
 
