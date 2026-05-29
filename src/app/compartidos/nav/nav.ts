@@ -1,10 +1,17 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-
+import { CarritoService } from '../../servicios/carrito-service';
 @Component({
   selector: 'app-nav',
   imports: [RouterLink],
   templateUrl: './nav.html',
   styleUrl: './nav.css',
 })
-export class Nav {}
+export class Nav {
+  constructor(public carritoService: CarritoService) {}
+
+ get totalItems():number{
+  return this.carritoService.contar();
+ }
+}
+

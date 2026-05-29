@@ -2,15 +2,21 @@
   @for(p of Productos; track p.id){
     <div class="producto-card" [class.inactivo]="!p.disponibilidad">
       <div class="producto-imagen">
-        <img src="{{p.imagen}}" alt="{{p.nombre}}">
-      </div>
+  <!-- Imagen del producto -->
+  <img src="{{p.imagen}}" alt="{{p.nombre}}">
+  
+  <!-- Botón de favoritos -->
+  <button type="button" class="btn-favorito">
+    <span class="star-icon">⭐</span>
+  </button>
+</div>
       <div class="producto-info">
         <h3 class="producto-nombre">{{p.nombre}}</h3>
         <h4 class="producto-precio">${{p.precio}}</h4>
         <p class="producto-descripcion">{{p.informacion}}</p>
     
         @if(p.disponibilidad) {
-          <button type="button" class="btn-compra">
+          <button type="button" class="btn-compra" (click)="agregarProducto(p)">
             agregar al carrito
           </button>
         } @else {

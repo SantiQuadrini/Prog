@@ -1,202 +1,337 @@
-/* Contenedor con sombra y borde redondeado */
-.table-container {
-  overflow-x: auto;
-  box-shadow: 0 10px 30px rgba(249, 115, 22, 0.3);
-  border-radius: 12px;
+/* ===== CONTENEDOR GENERAL ===== */
+.carrito-container{
+  width: 95%;
+  max-width: 1400px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.06),
+    0 2px 10px rgba(249,115,22,0.08);
+  border: 1px solid #f3f4f6;
 }
 
-table.table {
+/* ===== TITULO ===== */
+.carrito-titulo{
+  font-size: 3rem;
+  font-weight: 800;
+  color: #1f2937;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* ===== TABLA ===== */
+.tabla-responsive{
+  overflow-x: auto;
+  border-radius: 20px;
+}
+
+.carrito-tabla{
   width: 100%;
   border-collapse: separate;
-  border-spacing: 0;
-  font-family: 'Segoe UI', system-ui, sans-serif;
-  background-color: #fff;
-  border: 1px solid #fed7aa;
-  border-radius: 12px;
-  overflow: hidden;
+  border-spacing: 0 16px;
 }
 
-/* Encabezado */
-table.table thead th {
-  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%); /* Naranja vivo */
+/* ===== HEADER ===== */
+.carrito-tabla thead th{
+  background: linear-gradient(90deg, #ea580c, #ff9900);
   color: white;
-  font-weight: 700;
+  padding: 18px;
+  font-size: .9rem;
   text-transform: uppercase;
   letter-spacing: 1px;
-  padding: 16px 20px;
-  font-size: 0.85rem;
-  border-right: 1px solid rgba(255,255,255,0.2);
-}
-
-/* Quitar borde derecho última columna header */
-table.table thead th:last-child {
-  border-right: none;
-}
-
-/* Celdas */
-table.table td {
-  padding: 14px 20px;
-  color: #431407; /* Marrón oscuro para buen contraste */
-  border-bottom: 1px solid #fed7aa; /* Naranja muy suave */
-  font-weight: 500;
-}
-
-/* Primera columna (nth) */
-table.table th[scope="row"] {
-  background-color: #fff7ed; /* Naranja muy claro */
-  color: #ea580c;
-  font-weight: 700;
-  border-right: 2px solid #fed7aa;
-}
-
-/* Hover filas */
-table.table tbody tr {
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-}
-
-table.table tbody tr::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background-color: transparent;
-  transition: all 0.25s ease;
-}
-
-table.table tbody tr:hover {
-  background-color: #fff7ed;
-  transform: scale(1.01);
-  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.15);
-}
-
-table.table tbody tr:hover::before {
-  background-color: #f97316; /* Barra naranja lateral */
-}
-
-/* Última fila sin borde inferior */
-table.table tbody tr:last-child td {
-  border-bottom: none;
-}
-
-/* Encabezado columna @mdo - especial */
-table.table tbody tr:hover td:last-child {
-  color: #f97316;
   font-weight: 700;
 }
-/* --- Contenedor Principal --- */
-.table-container {
-  overflow-x: auto; /* Permite desplazamiento horizontal en móviles */
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin: 20px auto;
-  padding: 20px;
-  max-width: 100%;
+
+.carrito-tabla thead th:first-child{
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
 }
 
-/* --- Tabla --- */
-.table {
-  width: 100%;
-  border-collapse: collapse;
-  min-width: 800px; /* Asegura que la tabla no se aplaste demasiado */
+.carrito-tabla thead th:last-child{
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
 }
 
-.table thead tr {
-  background-color: #343a40; /* Color oscuro para el header */
-  color: #ffffff;
-  text-align: left;
+/* ===== FILAS ===== */
+.carrito-tabla tbody tr{
+  background: #fff;
+  transition: .25s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
-.table th, .table td {
-  padding: 15px;
-  border-bottom: 1px solid #dee2e6;
+.carrito-tabla tbody tr:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(249,115,22,0.15);
+}
+
+/* ===== CELDAS ===== */
+.carrito-tabla td{
+  padding: 18px;
   vertical-align: middle;
+  border-top: 1px solid #f3f4f6;
+  border-bottom: 1px solid #f3f4f6;
 }
 
-/* --- Header Específico (Opcional) --- */
-.col-id, .col-img, .col-nombre, .col-cantidad, .col-precio, .col-desc {
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 0.85rem;
-  letter-spacing: 1px;
+.carrito-tabla td:first-child{
+  border-left: 1px solid #f3f4f6;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
 }
 
-/* --- Filas del Cuerpo (Hover effect) --- */
-.table tbody tr:hover {
-  background-color: #f8f9fa;
+.carrito-tabla td:last-child{
+  border-right: 1px solid #f3f4f6;
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
 }
 
-/* --- Imágenes --- */
-.table td img {
-  width: 50px;
-  height: 50px;
+/* ===== IMAGEN ===== */
+.producto-img{
+  width: 80px;
+  height: 80px;
   object-fit: cover;
-  border-radius: 50%;
-  border: 2px solid #dee2e6;
+  border-radius: 18px;
+  border: 3px solid #fff;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  transition: .3s ease;
 }
 
-/* --- Botones de Acción --- */
-button[class^="btn-"] {
+.producto-img:hover{
+  transform: scale(1.08);
+}
+
+/* ===== NOMBRE PRODUCTO ===== */
+.producto-nombre{
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+/* ===== PRECIOS ===== */
+.precio-unitario{
+  color: #6b7280;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.precio-subtotal{
+  color: #ea580c;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+/* ===== CONTROL CANTIDAD ===== */
+.cantidad-control{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: #fff7ed;
+  padding: 8px 14px;
+  border-radius: 50px;
+  width: fit-content;
+}
+
+.btn-cant{
+  width: 36px;
+  height: 36px;
   border: none;
-  padding: 8px 12px;
-  margin: 0 2px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.8rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg,#f97316,#ea580c);
+  color: white;
+  font-size: 1.2rem;
   font-weight: bold;
-  color: #fff;
-  transition: all 0.3s ease;
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.btn-cant:hover{
+  transform: scale(1.12);
+  box-shadow: 0 4px 12px rgba(249,115,22,0.35);
+}
+
+.cantidad-valor{
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1f2937;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* ===== BOTON ELIMINAR ===== */
+.btn-eliminar{
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 14px;
+  background: #fff1f2;
+  color: #ef4444;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: .25s ease;
+}
+
+.btn-eliminar:hover{
+  background: #ef4444;
+  color: white;
+  transform: scale(1.08);
+}
+
+/* ===== CARRITO VACÍO ===== */
+.carrito-vacio{
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.carrito-vacio img{
+  width: 180px;
+  opacity: .9;
+  margin-bottom: 20px;
+}
+
+.carrito-vacio h3{
+  font-size: 2rem;
+  color: #1f2937;
+  margin-bottom: 10px;
+}
+
+.carrito-vacio p{
+  color: #6b7280;
+  font-size: 1rem;
+  margin-bottom: 25px;
+}
+
+.btn-menu{
+  border: none;
+  padding: 14px 28px;
+  border-radius: 14px;
+  background: linear-gradient(90deg,#ea580c,#ff9900);
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+.btn-menu:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(249,115,22,0.25);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px){
+
+  .carrito-container{
+    padding: 18px;
+  }
+
+  .carrito-titulo{
+    font-size: 2rem;
+  }
+
+  .producto-img{
+    width: 60px;
+    height: 60px;
+  }
+
+  .carrito-tabla thead{
+    display: none;
+  }
+
+  .carrito-tabla,
+  .carrito-tabla tbody,
+  .carrito-tabla tr,
+  .carrito-tabla td{
+    display: block;
+    width: 100%;
+  }
+
+  .carrito-tabla tr{
+    margin-bottom: 20px;
+    border-radius: 18px;
+    overflow: hidden;
+    padding: 10px;
+  }
+
+  .carrito-tabla td{
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .carrito-tabla td::before{
+    font-weight: 700;
+    color: #ea580c;
+  }
+
+  .col-producto::before{
+    content: "Producto";
+  }
+
+  .col-precio::before{
+    content: "Precio";
+  }
+
+  .col-cantidad::before{
+    content: "Cantidad";
+  }
+
+  .col-subtotal::before{
+    content: "Subtotal";
+  }
+
+  .col-acciones::before{
+    content: "Acciones";
+  }
+}
+/* TOTAL */
+.total-valor {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin: 0;
+}
+
+.total-valor span {
+  color: #e74c3c;
+}
+
+/* FOOTER DEL CARRITO */
+.carrito-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+/* BOTÓN FINALIZAR */
+.btn-finalizar {
   display: inline-block;
+  padding: 12px 30px;
+  background: #27ae60;
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
 }
 
-/* Botón Aumentar (Verde) */
-.btn-aumentar {
-  background-color: #28a745;
-}
-.btn-aumentar:hover {
-  background-color: #218838;
-  transform: translateY(-1px);
-}
-
-/* Botón Disminuir (Naranja/Amarillo) */
-.btn-disminuir {
-  background-color: #ffc107;
-  color: #212529;
-}
-.btn-disminuir:hover {
-  background-color: #e0a800;
-  transform: translateY(-1px);
-}
-
-/* Botón Eliminar (Rojo) */
-.btn-eliminar {
-  background-color: #dc3545;
-}
-.btn-eliminar:hover {
-  background-color: #c82333;
-  transform: translateY(-1px);
-}
-
-/* --- Estilos para móviles pequeños (Opcional) --- */
-@media (max-width: 600px) {
-  .table th, .table td {
-    padding: 8px;
-    font-size: 0.9rem;
-  }
-  .table td img {
-    width: 30px;
-    height: 30px;
-  }
-}
-/* --- Imagen del Producto (MÁS PEQUEÑA) --- */
-.producto-img {
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  object-fit: cover;
-  border: 2px solid var(--color-border);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.btn-finalizar:hover {
+  background: #219150;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(39, 174, 96, 0.3);
 }

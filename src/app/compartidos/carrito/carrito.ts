@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Producto } from '../../models/producto';
 import { CarritoService } from '../../servicios/carrito-service';
+import { RouterLink } from '@angular/router';
+
 @Component({
   selector: 'app-carrito',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './carrito.html',
   styleUrl: './carrito.css',
 })

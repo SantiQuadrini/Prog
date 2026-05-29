@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
 <head>
     <title>🍕 Pizzería Don Luigi - Especialidades</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -220,18 +218,26 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6">
-                <h1 class="animate__animated animate__fadeInLeft">🍕 La Mejor Pizza<br><span style="color: var(--dorado);">de Cipolletti</span></h1>
-                <p class="lead mb-4 animate__animated animate__fadeInLeft animate__delay-1s">¡<strong>ENVÍO GRATIS</strong> en 30 minutos </p>
-                <div class="d-flex gap-3 flex-wrap animate__animated animate__fadeInUp animate__delay-2s">
-                    <a href="https://wa.me/5492991234567?text=🍕%20Hola!%20Quiero%20pedir%20pizza%20en%20Don%20Luigi" 
-                       class="btn-pedido fs-5 px-5 py-3">
-                        <i class="bi bi-whatsapp me-2"></i>Pedir por WhatsApp
-                    </a>
-                    <a routerLink="/Productos" class="btn btn-outline-light btn-lg px-5 py-3 fw-bold">
-                        Ver Menú Completo
-                    </a>
-                </div>
-            </div>
+    <!-- Borde dorado decorativo + fondo oscuro sutil -->
+    <div class="rounded-4 p-4 p-lg-5" style="border: 2px solid rgba(255,215,0,0.6); background: rgba(0,0,0,0.3);">
+        <h1 class="animate__animated animate__fadeInLeft" style="color: #ffffff;">
+            🍕 La Mejor Pizza<br>
+            <span style="color: #ffd700;">de Cipolletti</span>
+        </h1>
+        <p class="lead mb-4 animate__animated animate__fadeInLeft animate__delay-1s" style="color: #e0e0e0;">
+            ¡<strong style="color: #ffd700;">ENVÍO Gratis</strong> en 30 minutos 
+        </p>
+        <div class="d-flex gap-3 flex-wrap animate__animated animate__fadeInUp animate__delay-2s">
+            <a href="https://wa.me/5492991234567?text=🍕%20Hola!%20Quiero%20pedir%20pizza%20en%20Don%20Luigi" 
+               class="btn-pedido fs-5 px-5 py-3">
+                <i class="bi bi-whatsapp me-2"></i>Pedir por WhatsApp
+            </a>
+            <a routerLink="/Productos" class="btn btn-outline-light btn-lg px-5 py-3 fw-bold">
+                Ver Menú Completo
+            </a>
+        </div>
+    </div>
+</div>
             <div class="col-lg-6 text-center">
                 <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600&fit=crop" 
                      class="img-fluid rounded-4 shadow-lg animate__animated animate__zoomIn animate__delay-1s" 
@@ -333,75 +339,125 @@
 </section>
 
 <!-- 🗺️ NUEVA SECCIÓN MAPA GOOGLE (AGREGADA AL FINAL) -->
-<section class="section-cards" style="background: linear-gradient(135deg, var(--rojo-oscuro), var(--rojo-principal)); color: white;">
+<!-- 📱 CONTACTO Y MAPA (VERSION PROFESIONAL) -->
+<section class="contact-section">
     <div class="cards-container">
         <div class="section-header">
-            <h2 class="section-title" style="color: white;">📍 Encuentra tu Local Más Cercano</h2>
+            <h2 class="section-title">📍 Encontrá tu Local Más Cercano</h2>
+            <p class="mt-3" style="opacity: 0.9;">Visitanos o pedí delivery a cualquier zona</p>
         </div>
+        
         <div class="row g-4 align-items-center">
-            <div class="col-lg-6">
-                <div class="text-center text-lg-start mb-4 mb-lg-0">
-                    <h3 class="mb-4" style="color: var(--dorado);">📱 Pedí por WhatsApp</h3>
-                    <div class="mb-4 p-4 bg-white bg-opacity-10 rounded-4">
-                        <div class="d-flex align-items-center mb-3">
-                            <i class="bi bi-telephone-fill display-4 text-warning me-3"></i>
-                            <div>
-                                <h4 class="mb-1">299-123-4567</h4>
-                                <p class="mb-0 fs-5">Llamadas & WhatsApp 24/7</p>
+            <!-- INFO DE CONTACTO -->
+            <div class="col-lg-5">
+                <div class="contact-info">
+                    <h3 class="mb-4" style="color: var(--dorado-claro);">
+                        <i class="bi bi-chat-dots-fill me-2"></i>Pedí por WhatsApp
+                    </h3>
+                    
+                    <div class="info-cards">
+                        <div class="info-card-item">
+                            <div class="info-icon">
+                                <i class="bi bi-telephone-fill"></i>
+                            </div>
+                            <div class="info-text">
+                                <h4>299-123-4567</h4>
+                                <p>Llamadas & WhatsApp 24/7</p>
                             </div>
                         </div>
-                        <div class="d-flex align-items-center">
-                            <i class="bi bi-clock-fill display-4 text-warning me-3"></i>
-                            <div>
-                                <h4 class="mb-1">🕚 11:00 - 00:00</h4>
-                                <p class="mb-0 fs-5">Todos los días</p>
+                        
+                        <div class="info-card-item">
+                            <div class="info-icon">
+                                <i class="bi bi-clock-fill"></i>
+                            </div>
+                            <div class="info-text">
+                                <h4>11:00 - 00:00</h4>
+                                <p>Todos los días</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-card-item">
+                            <div class="info-icon">
+                                <i class="bi bi-truck"></i>
+                            </div>
+                            <div class="info-text">
+                                <h4>ENVÍO Gratis</h4>
+                                <p>En 30 minutos</p>
                             </div>
                         </div>
                     </div>
-                    <div class="text-center text-lg-start">
-                        <a href="https://wa.me/5492991234567?text=📍%20Hola!%20Estoy%20cerca%20de%20San%20Martín%20734%20-%20Quiero%20pedir" 
-                           class="btn-pedido btn-lg px-5 py-3 fs-5 shadow-lg">
-                            <i class="bi bi-whatsapp me-2"></i>Pedir Ahora
-                        </a>
-                    </div>
+                    
+                    <a href="https://wa.me/5492991234567?text=🍕%20Hola!%20Quiero%20pedir%20pizza" 
+                       class="btn-pedido btn-lg w-100 mt-4">
+                        <i class="bi bi-whatsapp me-2"></i>Pedir Ahora
+                    </a>
                 </div>
             </div>
-            <div class="col-lg-6">
-                <!-- 🗺️ PEGA AQUÍ TU EMBED DE GOOGLE MAPS -->
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3316.068962592179!2d-67.99512368509999!3d-38.940123979599!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzhkwrDU2JzI0LjciUyA2N8KwNTknNDMuNyJX!5e0!3m2!1ses!2sar!4v1699999999999!5m2!1ses!2sar" 
-                        class="w-100 rounded-4 shadow-lg border-0" height="400" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+            
+            <!-- MAPA -->
+            <div class="col-lg-7">
+                <div class="map-wrapper">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3316.068962592179!2d-67.99512368509999!3d-38.940123979599!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzhkwrDU2JzI0LjciUyA2N8KwNTknNDMuNyJX!5e0!3m2!1ses!2sar!4v1699999999999!5m2!1ses!2sar" 
+                            class="map-iframe" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <div class="map-overlay">
+                        <i class="bi bi-geo-alt-fill"></i>
+                        <span>Ver en Google Maps</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- TUS LOCALES ORIGINALES -->
-<section class="section-cards">
+<!-- 📍 NUESTROS LOCALES (VERSÍON PROFESIONAL) -->
+<section class="section-cards" style="background: var(--blanco);">
     <div class="cards-container">
         <div class="section-header">
             <h2 class="section-title">📍 Nuestros Locales</h2>
+            <p class="text-muted mt-3">Visitanos en cualquiera de nuestras sedes</p>
         </div>
         <div class="row g-4 justify-content-center">
             <div class="col-lg-4 col-md-6">
                 <div class="location-card">
-                    <i class="bi bi-geo-alt-fill" style="font-size: 3rem; color: var(--dorado); margin-bottom: 1rem; display: block;"></i>
-                    <h4 class="mb-3" style="color: var(--rojo-oscuro);">Centro Comercial</h4>
-                    <p class="mb-0" style="font-size: 1.1rem;">Av. Principal 123<br>Cipolletti, Río Negro</p>
+                    <div class="location-icon">
+                        <i class="bi bi-shop"></i>
+                    </div>
+                    <h4>Centro Comercial</h4>
+                    <p class="mb-0">Av. Principal 123<br>Cipolletti, Río Negro</p>
+                    <a href="https://wa.me/5492991234567?text=📍%20Estoy%20en%20Centro%20Comercial" 
+                       class="btn btn-sm btn-outline-danger mt-3 rounded-pill">
+                        <i class="bi bi-chat-dots me-1"></i>Contactar
+                    </a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
                 <div class="location-card">
-                    <i class="bi bi-geo-alt-fill" style="font-size: 3rem; color: var(--dorado); margin-bottom: 1rem; display: block;"></i>
-                    <h4 class="mb-3" style="color: var(--rojo-oscuro);">Local Principal</h4>
-                    <p class="mb-0" style="font-size: 1.1rem;">San Martín 734<br>Cipolletti Centro</p>
+                    <div class="location-icon">
+                        <i class="bi bi-building"></i>
+                    </div>
+                    <h4>Local Principal</h4>
+                    <p class="mb-0">San Martín 734<br>Cipolletti Centro</p>
+                    <a href="https://wa.me/5492991234567?text=📍%20Estoy%20en%20San%20Martín%20734" 
+                       class="btn btn-sm btn-outline-danger mt-3 rounded-pill">
+                        <i class="bi bi-chat-dots me-1"></i>Contactar
+                    </a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
                 <div class="location-card">
-                    <i class="bi bi-geo-alt-fill" style="font-size: 3rem; color: var(--dorado); margin-bottom: 1rem; display: block;"></i>
-                    <h4 class="mb-3" style="color: var(--rojo-oscuro);">Zona Norte</h4>
-                    <p class="mb-0" style="font-size: 1.1rem;">Av. Norte 456<br>Labardi</p>
+                    <div class="location-icon">
+                        <i class="bi bi-geo-alt"></i>
+                    </div>
+                    <h4>Zona Norte</h4>
+                    <p class="mb-0">Av. Norte 456<br>Labardy</p>
+                    <a href="https://wa.me/5492991234567?text=📍%20Estoy%20en%20Zona%20Norte" 
+                       class="btn btn-sm btn-outline-danger mt-3 rounded-pill">
+                        <i class="bi bi-chat-dots me-1"></i>Contactar
+                    </a>
                 </div>
             </div>
         </div>
@@ -409,5 +465,3 @@
 </section>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
