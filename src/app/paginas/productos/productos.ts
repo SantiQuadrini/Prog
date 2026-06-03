@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { Producto } from '../../models/producto';
 import { CarritoService } from '../../servicios/carrito-service';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-productos',
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './productos.html',
   styleUrl: './productos.css',
 })
@@ -148,8 +149,138 @@ export class Productos {
       imagen: "assets/ChatGPT Image 8 may 2026, 08_35_25 a.m..png",
       informacion: "Pizza de sabor intenso elaborada con queso roquefort y mozzarella.",
       cantidad: 1
+    },
+    {
+      id: 16,
+      nombre: "Empanada de Carne",
+      disponibilidad: true,
+      precio: 5000,
+      imagen: "assets/ChatGPT Image 3 jun 2026, 10_21_24 a.m..png",
+      informacion: "Empanada rellena de carne molida condimentada con especias.",
+      cantidad: 1
+    },
+    {
+      id: 17,
+      nombre: "Empanada de Pollo",
+      disponibilidad: true,
+      precio: 5000,
+      imagen: "assets/ChatGPT Image 3 jun 2026, 10_24_08 a.m..png",
+      informacion: "Empanada rellena de pollo desmenuzado con salsa de crema.",
+      cantidad: 1
+    },
+    {
+      id: 18,
+      nombre: "Empanada de Queso",
+      disponibilidad: true,
+      precio: 4500,
+      imagen: "assets/ChatGPT Image 3 jun 2026, 10_27_17 a.m..png",
+      informacion: "Empanada rellena de queso mozzarella fundido.",
+      cantidad: 1
+    },
+    {
+      id: 19,
+      nombre: "Empanada de Jamón y Queso",
+      disponibilidad: true,
+      precio: 5500,
+      imagen: "assets/ChatGPT Image 3 jun 2026, 10_29_00 a.m..png",
+      informacion: "Empanada rellena de jamón y queso",
+      cantidad: 1
+    },
+    {
+      id: 20,
+      nombre: "Empanada de Papa",
+      disponibilidad: true,
+      precio: 4000,
+      imagen: "assets/ChatGPT Image 3 jun 2026, 10_31_47 a.m..png",
+      informacion: "Empanada rellena de papa dorada con cebolla.",
+      cantidad: 1
+    },
+    {
+      id: 21,
+      nombre: "Empanada de Hojaldre",
+      disponibilidad: true,
+      precio: 4500,
+      imagen: "assets/ChatGPT Image 3 jun 2026, 10_34_21 a.m..png",
+      informacion: "Empanada de hojaldre con relleno mixto.",
+      cantidad: 1
+    },
+    {
+      id: 22,
+      nombre: "Empanada de Carne Picante",
+      disponibilidad: true,
+      precio: 5500,
+      imagen: "assets/ChatGPT Image 3 jun 2026, 10_36_14 a.m..png",
+      informacion: "Empanada rellena de carne con picante.",
+      cantidad: 1
+    },
+    {
+      id: 23,
+      nombre: "Empanada de Verduras",
+      disponibilidad: true,
+      precio: 4500,
+      imagen: "assets/ChatGPT Image 3 jun 2026, 10_37_42 a.m..png",
+      informacion: "Empanada rellena de vegetales mixtos.",
+      cantidad: 1
+    },
+    {
+      id: 24,
+      nombre: "Empanada de Atún",
+      disponibilidad: true,
+      precio: 5000,
+      imagen: "assets/Gemini_Generated_Image_256a2t256a2t256a (1).png",
+      informacion: "Empanada rellena de atún con tomate.",
+      cantidad: 1
+    },
+    {
+      id: 25,
+      nombre: "Empanada de Capresse",
+      disponibilidad: true,
+      precio: 5000,
+      imagen: "assets/Gemini_Generated_Image_3okdk53okdk53okd (1).png",
+      informacion: "Empanada rellena de champiñones.",
+      cantidad: 1
+    },
+    {
+      id: 26,
+      nombre: "Empanada de Humita",
+      disponibilidad: true,
+      precio: 5500,
+      imagen: "assets/Gemini_Generated_Image_z4aa3yz4aa3yz4aa.png",
+      informacion: "Empanada rellena de pollo y queso.",
+      cantidad: 1
+    },
+    {
+      id: 27,
+      nombre: "Empanada de Carne y Queso",
+      disponibilidad: true,
+      precio: 6000,
+      imagen: "assets/Gemini_Generated_Image_a6z41ra6z41ra6z4.png",
+      informacion: "Empanada rellena de carne y queso derretido.",
+      cantidad: 1
+    },
+    {
+      id: 28,
+      nombre: "Empanada de Cantimpalo",
+      disponibilidad: true,
+      precio: 6000,
+      imagen: " assets/Gemini_Generated_Image_kam1k2kam1k2kam1.png",
+      informacion: "Empanada rellena de carne y queso derretido.",
+      cantidad: 1
     }
-  ]
+  ];
+  searchTerm: string = '';
+
+  filtrarProductos() {
+    if (!this.searchTerm) {
+      return this.Productos;
+    }
+
+    const filtered = this.Productos.filter(p =>
+      p.nombre.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
+
+    return filtered;
+  }
   agregarProducto(p: Producto) {
     this.carritoService.agregarProd(p);
   }

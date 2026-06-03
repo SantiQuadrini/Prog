@@ -9,14 +9,15 @@ export class CarritoService {
 
   prodCarrito: Producto[] = [];
 
-  
+
   agregarProd(p: Producto) {
     const productoExistente = this.prodCarrito.find(prod => prod.id === p.id);
-    
+
     if (productoExistente) {
       productoExistente.cantidad += p.cantidad;
     } else {
       this.prodCarrito.push(p);
+      alert('Producto agregado al carrito');
     }
   }
 
@@ -31,44 +32,49 @@ export class CarritoService {
     }
   }
 
-  disminuirCantidad(id: number){
+  disminuirCantidad(id: number) {
     const productoCant = this.prodCarrito.find(p => p.id === id);
     if (productoCant) {
       productoCant.cantidad--;
-      
+
       if (productoCant.cantidad <= 0) {
         this.eliminarProducto(id)
       }
     }
   }
-  
-contar(): number {
-  return this.prodCarrito.length;
-}
 
-  eliminarProducto(id: number){
+  contar(): number {
+    return this.prodCarrito.length;
+  }
+
+  eliminarProducto(id: number) {
     const eliminarProd = this.prodCarrito.findIndex(p => p.id === id);
-    
+
     if (eliminarProd !== -1) {
-        let confirma = confirm('¿Desea eliminar este producto del carrito?');
-        if(confirma){
-          this.prodCarrito.splice(eliminarProd, 1);
-          alert('Producto eliminado correctamente');
-        }
-        if (!confirma) {
-          alert('Producto no eliminado');
-          return;
-        }
-    }
+      let confirma = confirm('¿Desea eliminar este producto del carrito?');
+      if (confirma) {
+        this.prodCarrito.splice(eliminarProd, 1);
+        alert('Producto eliminado correctamente');
+      }
+      if (!confirma) {
+        alert('Producto no eliminado');
+        return;
+      }
+    };
   }
 
-  vaciarCarrito(){
-    let confirma = confirm('¿Desea vaciar el carrito?');
-    if (confirma) {
-      this.prodCarrito = [];
-      alert('Carrito vaciado correctamente');
-    } else {
-      alert('Carrito no vaciado');
+    vaciarCarrito(){
+      let confirma = confirm('¿Desea vaciar el carrito?');
+      if (confirma) {
+        this.prodCarrito = [];
+        alert('Carrito vaciado correctamente');
+      } else {
+        alert('Carrito no vaciado');
+      }
+    };
+    obtenerTotal(): number {
+      return this.prodCarrito.reduce((total, producto) => {
+        return total + (producto.precio * producto.cantidad);
+      }, 0);
     }
-  }
-}
+  } 

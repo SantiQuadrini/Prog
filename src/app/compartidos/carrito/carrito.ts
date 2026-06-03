@@ -29,4 +29,11 @@ this.carritoService.eliminarProducto(id);
 this.prodCarro =
 this.carritoService.obtenerProducto();
 }
+vaciarCarrito(){
+this.carritoService.vaciarCarrito();
+this.prodCarro =
+this.carritoService.obtenerProducto();
+}
+obtenerTotal(): number{
+return this.carritoService.obtenerTotal();}
 }
