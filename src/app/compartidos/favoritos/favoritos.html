@@ -1,1 +1,36 @@
-<p>favoritos works!</p>
+<div class="container py-5">
+  <h2>Favoritos</h2>
+  <p>Los productos que marcaste como favoritos aparecen aquí.</p>
+
+  @if(favoritos.length) {
+    <div class="table-responsive">
+      <table class="table table-hover align-middle">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of favoritos; track item.id) {
+            <tr>
+              <td>{{item.nombre}}</td>
+              <td>{{item.descripcion}}</td>
+              <td>${{item.precio}}</td>
+              <td class="d-flex gap-2">
+                <button type="button" mat-raised-button class="btn btn-outline-secondary btn-sm" (click)="agregarAlCarrito(item)">Agregar al carrito</button>
+                <button type="button" mat-raised-button class="btn btn-outline-danger btn-sm" (click)="eliminar(item.id)">Eliminar</button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+
+  @if(!favoritos.length) {
+    <div class="alert alert-info">Aún no agregaste ningún producto a favoritos.</div>
+  }
+</div>

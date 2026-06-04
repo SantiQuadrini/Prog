@@ -12,17 +12,15 @@ export const routes: Routes = [
 
 { path: '', redirectTo: 'inicio', pathMatch: 'full' },
 
-{ path: 'inicio',       component: Inicio },
-{ path: 'Productos',  component: Productos },
-{ path: 'Ofertas',  component: Ofertas },
-{ path: 'contactos',  component: Contactos},
+{ path: 'inicio', component: Inicio },
+{ path: 'productos', component: Productos },
+{ path: 'ofertas', component: Ofertas },
+{ path: 'contactos', component: Contactos },
 
+{ path: 'carrito', component: Carrito },
+{ path: 'favoritos', component: Favoritos },
 
-{ path: 'Carrito',  component: Carrito },
-{ path: 'Favoritos',  component: Favoritos },
-
-
-{ path: 'InicioSesion',  component: InicioSesion },
-{ path: 'Registro',  component: Registro},
+{ path: 'InicioSesion', component: InicioSesion },
+{ path: 'Registro', component: Registro },
 { path: '**', redirectTo: 'inicio' },
 ];

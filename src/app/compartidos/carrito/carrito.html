@@ -1,1 +1,61 @@
-<p>carrito works!</p>
+<div class="container py-5">
+  <h2>Carrito de Compras</h2>
+  <p>Aquí puedes revisar los productos que has agregado.</p>
+
+  @if(items.length) {
+    <div class="table-responsive">
+      <table class="table table-striped align-middle">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Precio Unitario</th>
+            <th>Total</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (item of items; track item.producto.id) {
+            <tr>
+              <td>{{item.producto.nombre}}</td>
+              <td>
+                <div class="d-flex align-items-center gap-2">
+                  <button type="button" class="btn btn-sm btn-outline-secondary" (click)="decrementar(item.producto.id)">-</button>
+                  <span style="min-width: 30px; text-align: center;">{{item.cantidad}}</span>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" (click)="incrementar(item.producto.id)">+</button>
+                </div>
+              </td>
+              <td>${{item.producto.precio}}</td>
+              <td>${{item.producto.precio * item.cantidad}}</td>
+              <td>
+                <button type="button" class="btn btn-outline-danger btn-sm" (click)="eliminar(item.producto.id)">
+                  Eliminar
+                </button>
+              </td>
+            </tr>
+          }
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3"></td>
+            <td><strong>Total:</strong></td>
+            <td><strong>${{total}}</strong></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <div class="d-flex flex-wrap gap-2 justify-content-end mt-3">
+      <button type="button" mat-raised-button class="btn btn-success" (click)="finalizarCompra()">Finalizar compra</button>
+      <button type="button" mat-raised-button class="btn btn-secondary" (click)="limpiar()">Vaciar carrito</button>
+    </div>
+
+    @if(factura) {
+      <div class="alert alert-success mt-3">{{ factura }}</div>
+    }
+  }
+
+  @if(!items.length) {
+    <p>Tu carrito está vacío.</p>
+  }
+</div>

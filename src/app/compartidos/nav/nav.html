@@ -1,85 +1,23 @@
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg border-bottom border-body"
-     style="width:100%; background: linear-gradient(90deg, #2c0a0a, #8b0000, #b22222); margin-bottom:0;"
-     data-bs-theme="dark">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top custom-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">iPhone Patagonia</a>
 
-  <div class="container-fluid">
-    
-    <a class="navbar-brand" routerLink="/inicio">
-      🍕 Pizzería Don Luigi Il Conto Porfavore
-    </a>
-    
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        
-        <li class="nav-item">
-          <a class="nav-link active" routerLink="/inicio">Inicio</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link active" routerLink="/Productos">Menú</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/contactos">Contacto</a>
-        </li>
-
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" routerLink='/inicio'>Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink='/productos'>Productos</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink='/ofertas'>Ofertas</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink='/contactos'>Contacto</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink='/favoritos'>Favoritos</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink='/carrito'><i class="bi bi-cart3"></i> Carrito</a></li>
       </ul>
 
-      <!-- BUSCADOR -->
-      <form class="d-flex me-3" role="search">
-        <input class="form-control me-2" type="search" placeholder="Buscar pizza...">
-        <button class="btn btn-outline-warning" type="submit">Buscar</button>
-      </form>
-
-      <!-- BOTON LOGIN -->
-      <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#loginModal">
-        Iniciar sesión
-      </button>
-
+      
     </div>
   </div>
 </nav>
-
-<!-- MODAL LOGIN -->
-<div class="modal fade" id="loginModal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <div class="modal-header">
-        <h5 class="modal-title">Iniciar sesión</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-
-      <div class="modal-body">
-
-        <form>
-          <div class="mb-3">
-            <label>Email</label>
-            <input type="email" class="form-control" placeholder="ejemplo@gmail.com">
-          </div>
-
-          <div class="mb-3">
-            <label>Contraseña</label>
-            <input type="password" class="form-control" placeholder="********">
-          </div>
-
-          <button type="submit" class="btn btn-danger w-100">
-            Entrar
-          </button>
-        </form>
-
-      </div>
-
-      <div class="modal-footer">
-        <small>¿No tenés cuenta? Registrate</small>
-      </div>
-
-    </div>
-  </div>
-</div>

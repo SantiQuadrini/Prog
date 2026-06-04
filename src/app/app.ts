@@ -7,7 +7,7 @@ import { Footer } from './compartidos/footer/footer';
   selector: 'app-root',
   imports: [RouterOutlet,Nav, Footer],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css']
 })
 export class App {
   protected readonly title = signal('proyecto1');
