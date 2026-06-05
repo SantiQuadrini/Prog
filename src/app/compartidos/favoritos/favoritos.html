@@ -1,1 +1,83 @@
-<p>favoritos works!</p>
+<div class="favoritos-container">
+
+  <h2 class="favoritos-titulo">⭐ Mis Favoritos</h2>
+
+  @if(prodFavoritos.length === 0){
+
+  <div class="favoritos-vacio">
+
+    <img src="https://cdn-icons-png.flaticon.com/512/1828/1828889.png" alt="Favoritos vacío">
+
+    <h3>No tienes favoritos aún</h3>
+
+    <p>
+      Guarda tus pizzas favoritas para pedidos rápidos ❤️
+    </p>
+
+    <button class="btn-menu" routerLink="/Productos">
+      Ver menú
+    </button>
+
+  </div>
+
+  }@else{
+
+  <!-- GRILLA DE FAVORITOS -->
+  <div class="favoritos-grid">
+
+    @for(p of prodFavoritos; track p.id){
+
+    <div class="favorito-card">
+
+      <!-- Imagen -->
+      <div class="card-imagen-container">
+        <img [src]="p.imagen" [alt]="p.nombre" class="card-imagen" />
+        <button type="button" class="btn-quitar-fav" (click)="eliminar(p.id)" title="Quitar de favoritos">
+          🚮
+        </button>
+      </div>
+
+      <!-- Info producto -->
+      <div class="card-info">
+
+        <h3 class="card-titulo">{{ p.nombre }}</h3>
+
+        <p class="card-descripcion">{{ p.informacion }}</p>
+
+        <div class="card-footer">
+
+          <div class="card-precio">
+            <span class="precio-valor">${{ p.precio }}</span>
+          </div>
+
+          <!-- ✅ BOTÓN AGREGADO PARA AÑADIR AL CARRITO -->
+          <button type="button" class="btn-agregar-carrito" (click)="anadirCarro(p)" title="Agregar al carrito">
+            <i class="bi bi-cart-plus"></i> Agregar al carrito
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    }
+
+  </div>
+
+  <div class="favoritos-resumen">
+
+    <div class="resumen-info">
+      <span class="resumen-label">Total favoritos:</span>
+      <span class="resumen-valor">${{ obtenerTotal() }}</span>
+    </div>
+
+    <button type="button" class="btn-vaciar" (click)="vaciarFavoritos()">
+      <i class="bi bi-trash"></i>
+      Vaciar favoritos
+    </button>
+
+  </div>
+
+  }
+</div>

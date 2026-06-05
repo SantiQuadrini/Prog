@@ -1,0 +1,355 @@
+/* Contenedor principal */
+.favoritos-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  min-height: 60vh;
+}
+
+/* Título */
+.favoritos-titulo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #495057;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* ==================== ESTADO VACÍO ==================== */
+.favoritos-vacio {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #f8f9fa;
+  border-radius: 16px;
+}
+
+.favoritos-vacio img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 1.5rem;
+  animation: flotar 3s ease-in-out infinite;
+}
+
+@keyframes flotar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.favoritos-vacio h3 {
+  color: #495057;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.favoritos-vacio p {
+  color: #6c757d;
+  margin-bottom: 1.5rem;
+}
+
+/* Botón menú */
+.btn-menu {
+  background: linear-gradient(135deg, #ff8000, #ff1500);
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-menu:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 59, 59, 0.3);
+  color: white;
+}
+
+/* ==================== GRILLA ==================== */
+.favoritos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* ==================== CARD ==================== */
+.favorito-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.favorito-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Imagen */
+.card-imagen-container {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+}
+
+.card-imagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.favorito-card:hover .card-imagen {
+  transform: scale(1.05);
+}
+
+/* Botón quitar favorito */
+.btn-quitar-fav {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: white;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.btn-quitar-fav:hover {
+  transform: scale(1.15);
+  background: #ffeaea;
+}
+
+/* Info card */
+.card-info {
+  padding: 1rem;
+}
+
+.card-titulo {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #495057;
+  margin-bottom: 0.5rem;
+}
+
+.card-descripcion {
+  font-size: 0.875rem;
+  color: #6c757d;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+/* ==================== CONTROL CANTIDAD ==================== */
+.cantidad-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background: #f8f9fa;
+  border-radius: 25px;
+}
+
+.btn-cant {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: white;
+  color: #495057;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.btn-cant:hover {
+  background: #fd7e14;
+  color: white;
+  transform: scale(1.1);
+}
+
+.btn-cant:active {
+  transform: scale(0.95);
+}
+
+.cantidad-valor {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #495057;
+  min-width: 30px;
+  text-align: center;
+}
+
+/* Footer card */
+.card-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0.75rem;
+  border-top: 1px solid #e9ecef;
+}
+
+.card-precio {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #e74c3c;
+}
+
+/* ==================== RESUMEN ==================== */
+.favoritos-resumen {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 16px;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.resumen-info {
+  font-size: 1rem;
+  color: #495057;
+}
+
+.resumen-valor {
+  font-weight: 700;
+  color: #e74c3c;
+  margin-left: 0.5rem;
+}
+
+/* Botón vaciar */
+.btn-vaciar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: #dc3545;
+  border: 2px solid #dc3545;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-vaciar:hover {
+  background: #dc3545;
+  color: white;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .favoritos-container {
+    padding: 1rem 0.5rem;
+  }
+
+  .favoritos-titulo {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .favoritos-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .favoritos-vacio {
+    padding: 3rem 1.5rem;
+  }
+
+  .favoritos-vacio img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .favoritos-vacio h3 {
+    font-size: 1.25rem;
+  }
+
+  .favoritos-resumen {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .resumen-info {
+    font-size: 1.1rem;
+  }
+
+  .btn-vaciar {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-imagen-container {
+    height: 150px;
+  }
+
+  .card-titulo {
+    font-size: 1rem;
+  }
+
+  .card-descripcion {
+    font-size: 0.8rem;
+  }
+
+  .card-precio {
+    font-size: 1.1rem;
+  }
+}
+
+/* === BOTÓN AGREGAR AL CARRITO - VERDE === */
+.btn-agregar-carrito {
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-agregar-carrito:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(46, 204, 113, 0.5);
+  background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+}
+
+.btn-agregar-carrito:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(46, 204, 113, 0.3);
+}
+
+/* Icono del carrito */
+.btn-agregar-carrito i {
+  font-size: 16px;
+}

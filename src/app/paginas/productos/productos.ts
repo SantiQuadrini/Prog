@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Producto } from '../../models/producto';
 import { CarritoService } from '../../servicios/carrito-service';
 import { FormsModule } from '@angular/forms';
+import { FavoritosService } from '../../servicios/favoritos-service';
 @Component({
   selector: 'app-productos',
   imports: [FormsModule],
@@ -10,7 +11,8 @@ import { FormsModule } from '@angular/forms';
 })
 export class Productos {
   constructor(
-    private carritoService: CarritoService
+    private carritoService: CarritoService,
+    private FavoritosService: FavoritosService
   ) { }
   Productos: Producto[] = [
     {
@@ -283,6 +285,9 @@ export class Productos {
   }
   agregarProducto(p: Producto) {
     this.carritoService.agregarProd(p);
+  }
+   agregarFavorito(p: Producto) {
+    this.FavoritosService.agregarFavorito(p);
   }
 }
 

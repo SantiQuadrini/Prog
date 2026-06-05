@@ -1,0 +1,28 @@
+.btn-fav {
+    background-color: transparent;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 22px;
+    opacity: 0.8;
+    border-radius: 50%;
+}
+
+.btn-fav:hover {
+    opacity: 1;
+    transform: scale(1.15);
+    background-color: rgba(255,255,255,0.1);
+}
+
+.btn-fav.active {
+    opacity: 1;
+    color: #f1c40f;
+    text-shadow: 0 0 8px rgba(241, 196, 15, 0.6);
+}

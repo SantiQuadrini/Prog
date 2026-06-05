@@ -19,8 +19,8 @@
       <div class="producto-imagen">
         <img src="{{p.imagen}}" alt="{{p.nombre}}">
 
-        <button type="button" class="btn-favorito">
-          <span class="star-icon">⭐</span>
+        <button type="button" class="btn-favorito"  (click)="agregarFavorito(p)">
+          <span class="star-icon">❤️</span>
         </button>
       </div>
 
