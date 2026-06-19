@@ -1,10 +1,7 @@
-<!-- CONTENEDOR PRINCIPAL -->
 <div class="productos-wrapper">
 
-  <!-- TÍTULO -->
   <h2 class="productos-titulo">🍕 Nuestro Menú</h2>
 
-  <!-- BARRA DE BÚSQUEDA -->
   <div class="buscador-wrapper">
     <div class="buscador-input">
       <i class="bi bi-search"></i>
@@ -12,7 +9,6 @@
     </div>
   </div>
 
-  <!-- PRODUCTOS -->
   <div class="productos-container">
     @for(p of filtrarProductos(); track p.id){
     <div class="producto-card" [class.inactivo]="!p.disponibilidad">

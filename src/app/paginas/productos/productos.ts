@@ -8,6 +8,7 @@ import { FavoritosService } from '../../servicios/favoritos-service';
   imports: [FormsModule],
   templateUrl: './productos.html',
   styleUrl: './productos.css',
+  standalone: true
 })
 export class Productos {
   constructor(

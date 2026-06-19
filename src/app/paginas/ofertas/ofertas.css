@@ -185,3 +185,63 @@
   color: white;
   cursor: not-allowed;
 }
+/* Contenedor del precio */
+.producto-precio-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 4px 0 8px;
+  flex-wrap: wrap;
+}
+
+/* Precio original tachado */
+.producto-precio-old {
+  font-size: 1rem;
+  color: #999;
+  text-decoration: line-through;
+  text-decoration-color: #e74c3c;
+  text-decoration-thickness: 2px;
+}
+
+/* Nuevo precio con descuento */
+.producto-precio-new {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #2ecc71;
+  /* o el color que uses para destacar */
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Etiqueta de descuento (esquinera) */
+.badge-descuento {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #e74c3c;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 4px 12px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.4);
+  animation: pulse-descuento 2s ease-in-out infinite;
+  z-index: 2;
+}
+
+@keyframes pulse-descuento {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+/* Ajuste para la imagen (necesario para posicionar la etiqueta) */
+.producto-imagen {
+  position: relative;
+  overflow: hidden;
+}

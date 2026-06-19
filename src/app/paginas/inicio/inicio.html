@@ -1,142 +1,587 @@
+<!DOCTYPE html>
+<html lang="es">
 <head>
-    <title>🍕 Pizzería Don Luigi - Especialidades</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
-    <style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Don Luigi · Pizzería de autor</title>
+
+    <!-- Bootstrap 5 + Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <!-- Google Font (tipografía más profesional) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
+
+     <style>
+        /* ============================================================
+                   ROOTS & RESET
+                   ============================================================ */
         :root {
-            --rojo-principal: #8b0000;
-            --rojo-oscuro: #2c0a0a;
-            --dorado: #ffd700;
-            --dorado-suave: #ffed4a;
-            --blanco: #ffffff;
-            --blanco-transparente: rgba(255,255,255,0.95);
-            --sombra-suave: rgba(0,0,0,0.1);
+            --rojo-profundo: #7a0f1a;
+            --rojo-vino: #5a0c14;
+            --dorado-puro: #d4a745;
+            --dorado-claro: #f0d080;
+            --beige-fondo: #f8f5f0;
+            --gris-sutil: #eae5de;
+            --blanco-puro: #ffffff;
+            --texto-oscuro: #1e1e1e;
+            --texto-secundario: #3d3d3d;
+            --sombra-soft: 0 12px 40px rgba(90, 12, 20, 0.08);
+            --sombra-media: 0 20px 50px rgba(90, 12, 20, 0.12);
+            --sombra-fuerte: 0 30px 70px rgba(90, 12, 20, 0.18);
+            --radius-card: 28px;
+            --radius-boton: 60px;
+            --transition-suave: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            --transition-lenta: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f8f7f4 0%, #e8e2d9 100%);
-            min-height: 100vh;
-            color: #2c3e50;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: var(--beige-fondo);
+            color: var(--texto-oscuro);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
-        /* 🔥 NUEVO HERO HEADER */
-        .hero {
-            background: linear-gradient(135deg, var(--rojo-principal), var(--rojo-oscuro));
-            color: white;
-            padding: 100px 0;
-            overflow: hidden;
-            margin-bottom: 4rem;
+        /* ============================================================
+                   SCROLL REVEAL (animaciones al hacer scroll)
+                   ============================================================ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(60px) scale(0.96);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
-        .hero h1 { 
-            font-size: clamp(2.5rem, 6vw, 4rem); 
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
         }
 
-        .hero .lead { font-size: 1.3rem; opacity: 0.95; }
-
-        .btn-pedido {
-            background: linear-gradient(135deg, var(--dorado), var(--dorado-suave));
-            border: none;
-            color: var(--rojo-oscuro) !important;
-            font-weight: 700;
-            padding: 15px 35px;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(255,215,0,0.4);
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-60px) scale(0.96);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
-        .btn-pedido:hover {
-            transform: translateY(-3px);
-            color: var(--rojo-oscuro) !important;
-            box-shadow: 0 15px 35px rgba(255,215,0,0.5);
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0) scale(1);
         }
 
-        /* 🔔 WHATSAPP FLOTANTE */
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(60px) scale(0.96);
+            transition: all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+        }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.85) rotate(-2deg);
+            transition: all 0.9s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .reveal-scale.visible {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+        }
+
+        /* ============================================================
+                   BOTÓN WHATSAPP FLOTANTE (con pulso)
+                   ============================================================ */
         .whatsapp-float {
             position: fixed;
-            width: 70px;
-            height: 70px;
-            bottom: 25px;
-            right: 25px;
-            background: #25d366;
-            color: white;
+            bottom: 28px;
+            right: 28px;
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(145deg, #25d366, #1fa38f);
+            color: #fff;
             border-radius: 50%;
-            text-align: center;
-            font-size: 2.2rem;
-            box-shadow: 0 6px 25px rgba(37,211,102,0.5);
-            z-index: 9999;
-            animation: pulse 2s infinite;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 2.2rem;
+            box-shadow: 0 8px 28px rgba(37, 211, 102, 0.45);
+            z-index: 9999;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: var(--transition-suave);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            animation: pulse-whatsapp 2s ease-in-out infinite;
         }
 
         .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 10px 35px rgba(37,211,102,0.7);
+            transform: scale(1.12) translateY(-4px);
+            color: #fff;
+            box-shadow: 0 14px 40px rgba(37, 211, 102, 0.6);
+            animation-play-state: paused;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.08); }
+        @keyframes pulse-whatsapp {
+            0%,
+            100% {
+                transform: scale(1);
+                box-shadow: 0 8px 28px rgba(37, 211, 102, 0.45);
+            }
+            50% {
+                transform: scale(1.06);
+                box-shadow: 0 8px 40px rgba(37, 211, 102, 0.65);
+            }
         }
 
-        /* Resto de estilos existentes (mantengo todo igual) */
-        .carousel-container {
-            max-width: 900px;
-            margin: 0 auto 4rem;
+        /* ============================================================
+                   HERO — con partículas y movimiento
+                   ============================================================ */
+        .hero {
+            background: linear-gradient(145deg, var(--rojo-profundo) 0%, #3f0a10 100%);
+            padding: 80px 0 90px;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 6px solid var(--dorado-puro);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(212, 167, 69, 0.08), transparent 60%),
+                radial-gradient(circle at 80% 20%, rgba(212, 167, 69, 0.05), transparent 50%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Partículas flotantes */
+        .particles {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: rgba(212, 167, 69, 0.15);
+            border-radius: 50%;
+            animation: float-particle 15s infinite linear;
+        }
+
+        .particle:nth-child(1) {
+            left: 10%;
+            top: 20%;
+            animation-delay: 0s;
+            animation-duration: 18s;
+        }
+        .particle:nth-child(2) {
+            left: 25%;
+            top: 60%;
+            animation-delay: 2s;
+            animation-duration: 14s;
+            width: 10px;
+            height: 10px;
+            opacity: 0.6;
+        }
+        .particle:nth-child(3) {
+            left: 60%;
+            top: 10%;
+            animation-delay: 4s;
+            animation-duration: 20s;
+        }
+        .particle:nth-child(4) {
+            left: 80%;
+            top: 40%;
+            animation-delay: 1s;
+            animation-duration: 16s;
+            width: 8px;
+            height: 8px;
+        }
+        .particle:nth-child(5) {
+            left: 45%;
+            top: 80%;
+            animation-delay: 3s;
+            animation-duration: 22s;
+        }
+        .particle:nth-child(6) {
+            left: 90%;
+            top: 70%;
+            animation-delay: 5s;
+            animation-duration: 17s;
+            width: 12px;
+            height: 12px;
+            opacity: 0.4;
+        }
+
+        @keyframes float-particle {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 0.2;
+            }
+            25% {
+                transform: translate(30px, -40px) rotate(90deg);
+                opacity: 0.6;
+            }
+            50% {
+                transform: translate(-20px, -80px) rotate(180deg);
+                opacity: 0.3;
+            }
+            75% {
+                transform: translate(40px, -30px) rotate(270deg);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+                opacity: 0.2;
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(212, 167, 69, 0.15);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(212, 167, 69, 0.25);
+            padding: 6px 18px;
+            border-radius: 60px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: var(--dorado-claro);
+            text-transform: uppercase;
+            margin-bottom: 1.2rem;
+            animation: badge-pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes badge-pulse {
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.8;
+                transform: scale(1.02);
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.8rem, 6vw, 4.2rem);
+            font-weight: 800;
+            line-height: 1.1;
+            color: #fff;
+            letter-spacing: -0.02em;
+            animation: slide-up 1s ease forwards;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--dorado-puro), #f5e08a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        @keyframes slide-up {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero .lead {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            max-width: 480px;
+            font-weight: 400;
+            margin-top: 0.75rem;
+            animation: slide-up 1s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        .hero .lead strong {
+            color: var(--dorado-claro);
+            font-weight: 600;
+        }
+
+        .btn-oro {
+            background: linear-gradient(135deg, var(--dorado-puro), #e6c06a);
+            border: none;
+            color: var(--rojo-profundo) !important;
+            font-weight: 700;
+            padding: 14px 38px;
+            border-radius: var(--radius-boton);
+            font-size: 1.05rem;
+            transition: var(--transition-suave);
+            box-shadow: 0 8px 28px rgba(212, 167, 69, 0.35);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-oro::after {
+            content: '';
+            position: absolute;
+            inset: -50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            transform: scale(0);
+        }
+
+        .btn-oro:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 16px 45px rgba(212, 167, 69, 0.55);
+            color: var(--rojo-profundo) !important;
+        }
+
+        .btn-oro:hover::after {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .btn-outline-claro {
+            background: transparent;
+            border: 1.5px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            font-weight: 600;
+            padding: 14px 34px;
+            border-radius: var(--radius-boton);
+            font-size: 1.05rem;
+            transition: var(--transition-suave);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-outline-claro::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+
+        .btn-outline-claro:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.6);
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        .btn-outline-claro:hover::before {
+            transform: translateX(0);
+        }
+
+        .hero-img-wrapper {
             border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(139,0,0,0.15);
-            border: 1px solid rgba(255,215,0,0.2);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+            border: 2px solid rgba(212, 167, 69, 0.3);
+            transition: var(--transition-suave);
+            animation: float-image 6s ease-in-out infinite;
         }
 
-        .carousel-item img { height: 450px; object-fit: cover; border-radius: 24px; }
+        @keyframes float-image {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
 
-        .section-cards { padding: 4rem 1.5rem; }
+        .hero-img-wrapper img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+            transition: var(--transition-lenta);
+        }
 
-        .cards-container { max-width: 1200px; margin: 0 auto; }
+        .hero-img-wrapper:hover img {
+            transform: scale(1.05);
+        }
 
-        .section-header { text-align: center; margin-bottom: 3.5rem; }
-
-        .section-title {
-            color: var(--rojo-principal);
-            font-size: clamp(2rem, 4vw, 2.8rem);
-            font-weight: 800;
-            margin-bottom: 1rem;
+        /* ============================================================
+                   CARRUSEL — con indicadores animados
+                   ============================================================ */
+        .carousel-container {
+            max-width: 1000px;
+            margin: -40px auto 0;
+            border-radius: var(--radius-card);
+            overflow: hidden;
+            box-shadow: var(--sombra-fuerte);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             position: relative;
+            z-index: 5;
+            background: #fff;
+            transition: var(--transition-suave);
+        }
+
+        .carousel-container:hover {
+            transform: scale(1.01);
+            box-shadow: 0 40px 80px rgba(90, 12, 20, 0.2);
+        }
+
+        .carousel-item img {
+            height: 420px;
+            object-fit: cover;
+            width: 100%;
+            transition: var(--transition-lenta);
+        }
+
+        .carousel-item.active img {
+            animation: zoom-in 8s ease-in-out infinite;
+        }
+
+        @keyframes zoom-in {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 50px;
+            height: 50px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(8px);
+            border-radius: 50%;
+            margin: 0 15px;
+            opacity: 0;
+            transition: var(--transition-suave);
+        }
+
+        .carousel-container:hover .carousel-control-prev,
+        .carousel-container:hover .carousel-control-next {
+            opacity: 1;
+        }
+
+        .carousel-control-prev:hover,
+        .carousel-control-next:hover {
+            background: rgba(0, 0, 0, 0.6);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-indicators button {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            transition: var(--transition-suave);
+        }
+
+        .carousel-indicators .active {
+            background: var(--dorado-puro);
+            transform: scale(1.3);
+        }
+
+        /* ============================================================
+                   TÍTULOS DE SECCIÓN
+                   ============================================================ */
+        .section-title {
+            font-size: clamp(2rem, 3.6vw, 2.8rem);
+            font-weight: 800;
+            color: var(--rojo-profundo);
+            letter-spacing: -0.02em;
+            position: relative;
+            display: inline-block;
         }
 
         .section-title::after {
             content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
+            display: block;
+            width: 60px;
             height: 4px;
-            background: linear-gradient(90deg, var(--dorado), var(--rojo-principal));
-            border-radius: 2px;
+            background: linear-gradient(90deg, var(--dorado-puro), var(--rojo-profundo));
+            border-radius: 4px;
+            margin: 10px auto 0;
+            animation: line-grow 1.5s ease forwards;
+            transform: scaleX(0);
+            transform-origin: left;
         }
 
+        .section-title.visible::after {
+            transform: scaleX(1);
+        }
+
+        @keyframes line-grow {
+            to {
+                transform: scaleX(1);
+            }
+        }
+
+        .section-sub {
+            color: var(--texto-secundario);
+            font-size: 1.15rem;
+            font-weight: 400;
+            max-width: 600px;
+            margin: 0.5rem auto 0;
+        }
+
+        /* ============================================================
+                   CARDS DE PIZZAS — con hover 3D
+                   ============================================================ */
         .pizza-card {
-            background: var(--blanco);
-            border-radius: 24px;
-            padding: 2.5rem 2rem;
+            background: var(--blanco-puro);
+            border-radius: var(--radius-card);
+            padding: 2.5rem 1.8rem;
             text-align: center;
-            box-shadow: 0 15px 50px rgba(139,0,0,0.08);
-            border: 1px solid rgba(255,215,0,0.15);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: var(--sombra-soft);
+            border: 1px solid rgba(212, 167, 69, 0.12);
+            transition: var(--transition-suave);
             height: 100%;
             position: relative;
             overflow: hidden;
+            transform-style: preserve-3d;
+            perspective: 1000px;
         }
 
         .pizza-card::before {
@@ -146,124 +591,545 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, var(--dorado), var(--rojo-principal), var(--dorado));
+            background: linear-gradient(90deg, var(--dorado-puro), var(--rojo-profundo));
+            opacity: 0.6;
+            transition: var(--transition-suave);
+        }
+
+        .pizza-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 0%, rgba(212, 167, 69, 0.05), transparent 70%);
+            opacity: 0;
+            transition: var(--transition-suave);
         }
 
         .pizza-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 25px 70px rgba(139,0,0,0.15);
-            border-color: rgba(255,215,0,0.3);
+            transform: translateY(-12px) rotateX(3deg) rotateY(3deg);
+            box-shadow: var(--sombra-fuerte);
+            border-color: rgba(212, 167, 69, 0.3);
+        }
+
+        .pizza-card:hover::before {
+            height: 6px;
+            opacity: 1;
+        }
+
+        .pizza-card:hover::after {
+            opacity: 1;
         }
 
         .pizza-icon {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--dorado), var(--rojo-principal));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: 3.6rem;
+            margin-bottom: 1rem;
+            display: block;
+            transition: var(--transition-suave);
         }
 
+        .pizza-card:hover .pizza-icon {
+            transform: scale(1.2) rotate(-10deg);
+        }
+
+        .pizza-card h3 {
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: var(--rojo-profundo);
+            margin-bottom: 0.5rem;
+        }
+
+        .pizza-card p {
+            color: var(--texto-secundario);
+            font-size: 0.98rem;
+            margin-bottom: 0;
+        }
+
+        .pizza-card .highlight {
+            color: var(--rojo-profundo);
+            font-weight: 600;
+        }
+
+        /* ============================================================
+                   REVIEWS — con efecto de "nota"
+                   ============================================================ */
         .review-card {
-            background: linear-gradient(135deg, var(--dorado), #ff8c00);
-            color: var(--rojo-oscuro);
-            border-radius: 20px;
-            padding: 2.25rem;
-            box-shadow: 0 15px 50px rgba(255,215,0,0.25);
-            transition: all 0.3s ease;
-            border: none;
+            background: var(--blanco-puro);
+            border-radius: var(--radius-card);
+            padding: 2rem 1.8rem;
+            box-shadow: var(--sombra-soft);
+            border-left: 5px solid var(--dorado-puro);
+            transition: var(--transition-suave);
+            height: 100%;
+            position: relative;
+            overflow: hidden;
         }
 
-        .review-card:hover { transform: translateY(-8px); box-shadow: 0 25px 60px rgba(255,215,0,0.35); }
+        .review-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            font-size: 6rem;
+            color: rgba(212, 167, 69, 0.08);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
 
+        .review-card:hover {
+            box-shadow: var(--sombra-media);
+            transform: translateY(-6px) scale(1.01);
+            border-left-width: 8px;
+        }
+
+        .review-card h4 {
+            font-weight: 700;
+            color: var(--rojo-profundo);
+            font-size: 1.15rem;
+        }
+
+        .review-card p {
+            font-size: 0.98rem;
+            color: var(--texto-secundario);
+            font-style: italic;
+            margin: 0.5rem 0 0.25rem;
+        }
+
+        .review-score {
+            font-weight: 700;
+            color: var(--dorado-puro);
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            display: inline-block;
+            animation: stars-pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes stars-pulse {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+                color: var(--dorado-claro);
+            }
+        }
+
+        /* ============================================================
+                   UBICACIONES / LOCALES
+                   ============================================================ */
         .location-card {
-            background: var(--blanco-transparente);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,215,0,0.3);
-            border-radius: 20px;
-            padding: 2.25rem;
-            transition: all 0.3s ease;
+            background: var(--blanco-puro);
+            border-radius: var(--radius-card);
+            padding: 2rem 1.8rem;
+            box-shadow: var(--sombra-soft);
+            border: 1px solid rgba(212, 167, 69, 0.1);
+            transition: var(--transition-suave);
+            height: 100%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .location-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--dorado-puro), var(--rojo-profundo));
+            transform: scaleX(0);
+            transition: var(--transition-suave);
         }
 
         .location-card:hover {
-            background: var(--blanco);
-            box-shadow: 0 20px 50px rgba(139,0,0,0.1);
-            border-color: var(--dorado);
+            box-shadow: var(--sombra-media);
+            border-color: var(--dorado-puro);
+            transform: translateY(-6px);
+        }
+
+        .location-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        .location-icon {
+            font-size: 2.6rem;
+            color: var(--rojo-profundo);
+            margin-bottom: 0.75rem;
+            transition: var(--transition-suave);
+            display: inline-block;
+        }
+
+        .location-card:hover .location-icon {
+            transform: scale(1.2) rotate(-5deg);
+        }
+
+        .location-card h4 {
+            font-weight: 700;
+            color: var(--rojo-profundo);
+            font-size: 1.15rem;
+        }
+
+        .location-card p {
+            color: var(--texto-secundario);
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .btn-outline-rojo {
+            border: 1.5px solid var(--rojo-profundo);
+            color: var(--rojo-profundo);
+            background: transparent;
+            font-weight: 600;
+            padding: 6px 22px;
+            border-radius: 60px;
+            font-size: 0.85rem;
+            transition: var(--transition-suave);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-outline-rojo:hover {
+            background: var(--rojo-profundo);
+            color: #fff;
+            border-color: var(--rojo-profundo);
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(122, 15, 26, 0.3);
+        }
+
+        /* ============================================================
+                   MAPA + CONTACTO
+                   ============================================================ */
+        .contact-section {
+            background: var(--blanco-puro);
+            padding: 4rem 0;
+        }
+
+        .contact-info {
+            background: var(--beige-fondo);
+            border-radius: var(--radius-card);
+            padding: 2.5rem 2rem;
+            box-shadow: var(--sombra-soft);
+            border: 1px solid rgba(212, 167, 69, 0.12);
+            transition: var(--transition-suave);
+            height: 100%;
+        }
+
+        .contact-info:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--sombra-media);
+        }
+
+        .contact-info h3 {
+            font-weight: 700;
+            color: var(--rojo-profundo);
+            font-size: 1.6rem;
+        }
+
+        .info-card-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+            transition: var(--transition-suave);
+        }
+
+        .info-card-item:hover {
+            transform: translateX(6px);
+            border-bottom-color: var(--dorado-puro);
+        }
+
+        .info-card-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--rojo-profundo);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            transition: var(--transition-suave);
+        }
+
+        .info-card-item:hover .info-icon {
+            transform: scale(1.1) rotate(-5deg);
+            background: var(--dorado-puro);
+            color: var(--rojo-profundo);
+        }
+
+        .info-text h4 {
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 0;
+            color: var(--texto-oscuro);
+        }
+
+        .info-text p {
+            color: var(--texto-secundario);
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        .map-wrapper {
+            border-radius: var(--radius-card);
+            overflow: hidden;
+            box-shadow: var(--sombra-media);
+            border: 1px solid rgba(212, 167, 69, 0.15);
+            position: relative;
+            height: 100%;
+            min-height: 380px;
+            transition: var(--transition-suave);
+        }
+
+        .map-wrapper:hover {
+            transform: scale(1.01);
+            box-shadow: var(--sombra-fuerte);
+        }
+
+        .map-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+            min-height: 380px;
+        }
+
+        .map-overlay {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(6px);
+            color: #fff;
+            padding: 8px 24px;
+            border-radius: 60px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            pointer-events: none;
+            white-space: nowrap;
+            animation: map-overlay-pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes map-overlay-pulse {
+            0%,
+            100% {
+                opacity: 0.8;
+                transform: translateX(-50%) scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: translateX(-50%) scale(1.03);
+            }
+        }
+
+        /* ============================================================
+                   RESPONSIVE
+                   ============================================================ */
+        @media (max-width: 992px) {
+            .hero {
+                padding: 60px 0 70px;
+            }
+            .hero-img-wrapper img {
+                height: 280px;
+                margin-top: 2rem;
+            }
+            .carousel-item img {
+                height: 280px;
+            }
+            .map-wrapper {
+                min-height: 300px;
+                margin-top: 1.5rem;
+            }
+            .map-wrapper iframe {
+                min-height: 300px;
+            }
         }
 
         @media (max-width: 768px) {
-            .hero { padding: 60px 0; text-align: center; }
-            .hero .col-lg-6 { margin-bottom: 2rem; }
-            .section-cards { padding: 2.5rem 1rem; }
+            .hero {
+                padding: 40px 0 50px;
+                text-align: center;
+            }
+            .hero .lead {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero .d-flex {
+                justify-content: center;
+            }
+            .btn-oro,
+            .btn-outline-claro {
+                width: 100%;
+                justify-content: center;
+            }
+            .carousel-item img {
+                height: 220px;
+            }
+            .carousel-container {
+                margin-top: -20px;
+            }
+            .contact-info {
+                padding: 1.8rem 1.2rem;
+            }
+            .info-card-item {
+                flex-wrap: wrap;
+            }
+            .map-overlay {
+                font-size: 0.75rem;
+                padding: 6px 16px;
+                bottom: 12px;
+            }
+            .particles {
+                display: none;
+            }
         }
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .pizza-card {
+                padding: 1.8rem 1.2rem;
+            }
+            .review-card {
+                padding: 1.5rem 1.2rem;
+            }
+            .carousel-control-prev,
+            .carousel-control-next {
+                width: 35px;
+                height: 35px;
+                margin: 0 5px;
+            }
         }
 
-        .pizza-card, .review-card, .location-card { animation: fadeInUp 0.6s ease forwards; }
+        /* ============================================================
+                   CONTADOR DINÁMICO (opcional)
+                   ============================================================ */
+        .counter-section {
+            background: linear-gradient(135deg, var(--rojo-profundo), #3f0a10);
+            color: #fff;
+            padding: 3rem 0;
+            border-top: 4px solid var(--dorado-puro);
+            border-bottom: 4px solid var(--dorado-puro);
+        }
+
+        .counter-item {
+            text-align: center;
+            transition: var(--transition-suave);
+        }
+
+        .counter-item:hover {
+            transform: scale(1.05);
+        }
+
+        .counter-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--dorado-puro);
+            display: block;
+            line-height: 1.2;
+        }
+
+        .counter-label {
+            font-size: 1rem;
+            opacity: 0.8;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .counter-number {
+                font-size: 2.5rem;
+            }
+            .counter-label {
+                font-size: 0.85rem;
+            }
+        }
     </style>
 </head>
 <body>
 
-<!-- 🔔 BOTÓN WHATSAPP FLOTANTE (CAMBIA TU NÚMERO) -->
-<a href="https://wa.me/5492991234567?text=🍕%20Hola!%20Quiero%20hacer%20un%20pedido%20en%20Pizzería%20Don%20Luigi" 
-   class="whatsapp-float" target="_blank" rel="noopener">
+    <!-- ============================================================
+    WHATSAPP FLOTANTE
+    ============================================================ -->
+    <a href="https://wa.me/5492991234567?text=🍕%20Hola!%20Quiero%20hacer%20un%20pedido%20en%20Pizzería%20Don%20Luigi"
+    class="whatsapp-float"
+    target="_blank"
+    rel="noopener">
     <i class="bi bi-whatsapp"></i>
 </a>
 
-<!--  NUEVO HERO HEADER (REEMPLAZA EL VIEJO) -->
+<!-- ============================================================
+HERO — NUEVO DISEÑO
+============================================================ -->
 <section class="hero">
-    <div class="container">
-        <div class="row align-items-center">
+    <div class="container hero-content">
+        <div class="row align-items-center g-4">
             <div class="col-lg-6">
-    <!-- Borde dorado decorativo + fondo oscuro sutil -->
-    <div class="rounded-4 p-4 p-lg-5" style="border: 2px solid rgba(255,215,0,0.6); background: rgba(0,0,0,0.3);">
-        <h1 class="animate__animated animate__fadeInLeft" style="color: #ffffff;">
-            🍕 La Mejor Pizza<br>
-            <span style="color: #ffd700;">de Cipolletti</span>
-        </h1>
-        <p class="lead mb-4 animate__animated animate__fadeInLeft animate__delay-1s" style="color: #e0e0e0;">
-            ¡<strong style="color: #ffd700;">ENVÍO Gratis</strong> en 30 minutos 
-        </p>
-        <div class="d-flex gap-3 flex-wrap animate__animated animate__fadeInUp animate__delay-2s">
-            <a href="https://wa.me/5492991234567?text=🍕%20Hola!%20Quiero%20pedir%20pizza%20en%20Don%20Luigi" 
-               class="btn-pedido fs-5 px-5 py-3">
-                <i class="bi bi-whatsapp me-2"></i>Pedir por WhatsApp
-            </a>
-            <a routerLink="/Productos" class="btn btn-outline-light btn-lg px-5 py-3 fw-bold">
-                Ver Menú Completo
-            </a>
+                <div class="hero-badge">
+                    <i class="bi bi-star-fill me-1" style="color: var(--dorado-puro);"></i> Tradición desde 1982
+                </div>
+                <h1>
+                    La mejor pizza<br />
+                    <span>de Cipolletti</span>
+                </h1>
+                <p class="lead">
+                    <strong>🍕 Envío gratis</strong> en 30 minutos · Masa madre fermentada 48h
+                </p>
+                <div class="d-flex flex-wrap gap-3 mt-4">
+                    <a href="https://wa.me/5492991234567?text=🍕%20Hola!%20Quiero%20pedir%20pizza%20en%20Don%20Luigi"
+                    class="btn-oro">
+                    <i class="bi bi-whatsapp"></i> Pedir por WhatsApp
+                </a>
+                <a href="/Productos" class="btn-outline-claro">
+                    Ver menú <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
         </div>
-    </div>
-</div>
-            <div class="col-lg-6 text-center">
-                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600&fit=crop" 
-                     class="img-fluid rounded-4 shadow-lg animate__animated animate__zoomIn animate__delay-1s" 
-                     style="max-height: 450px; width: 100%; object-fit: cover;" alt="Pizza Premium">
+        <div class="col-lg-6">
+            <div class="hero-img-wrapper">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&fit=crop"
+                alt="Pizza artesanal Don Luigi"
+                loading="lazy" />
             </div>
         </div>
     </div>
+</div>
 </section>
 
-<!-- TUS SECCIONES ORIGINALES (SIN CAMBIOS) -->
+<!-- ============================================================
+CARRUSEL (con margen negativo para solaparse al hero)
+============================================================ -->
 <div class="container">
     <div id="pizzaCarousel" class="carousel slide carousel-container" data-bs-ride="carousel">
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#pizzaCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#pizzaCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
             <button type="button" data-bs-target="#pizzaCarousel" data-bs-slide-to="1"></button>
             <button type="button" data-bs-target="#pizzaCarousel" data-bs-slide-to="2"></button>
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="assets/pizza-muzarella.png" class="d-block w-100" alt="Pizza Muzzarella">
+                <img src="assets/pizza-muzarella.png" class="d-block w-100" alt="Pizza Muzzarella" />
             </div>
             <div class="carousel-item">
-                <img src="assets/pizza-de-salchichones-30402134.webp" class="d-block w-100" alt="Pizza Salchichones">
+                <img src="assets/pizza-de-salchichones-30402134.webp" class="d-block w-100" alt="Pizza Salchichones" />
             </div>
             <div class="carousel-item">
-                <img src="assets/deliciosa-pizza-jamon-setas_191095-84336.avif" class="d-block w-100" alt="Pizza Jamón y Setas">
+                <img src="assets/deliciosa-pizza-jamon-setas_191095-84336.avif" class="d-block w-100" alt="Pizza Jamón y Setas" />
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#pizzaCarousel" data-bs-slide="prev">
@@ -275,30 +1141,33 @@
     </div>
 </div>
 
-<!-- Resto de tu código SIN CAMBIOS -->
-<section class="section-cards">
-    <div class="cards-container">
-        <div class="section-header">
-            <h2 class="section-title">🍕 Nuestras Especialidades</h2>
+<!-- ============================================================
+ESPECIALIDADES
+============================================================ -->
+<section class="py-5" id="menu">
+    <div class="container">
+        <div class="text-center fade-up">
+            <h2 class="section-title">🍕 Nuestras especialidades</h2>
+            <p class="section-sub">Recetas heredadas, ingredientes de primera calidad</p>
         </div>
-        <div class="row g-4 justify-content-center">
-            <div class="col-lg-4 col-md-6">
+        <div class="row g-4 mt-4 justify-content-center">
+            <div class="col-lg-4 col-md-6 fade-up delay-1">
                 <div class="pizza-card">
-                    <div class="pizza-icon">🍕</div>
+                    <span class="pizza-icon">🍕</span>
                     <h3>Pizza Especial</h3>
                     <p>Jamón crudo, morcilla, aceitunas negras y muzzarella. <span class="highlight">Explosión de sabor italiano auténtico.</span></p>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6 fade-up delay-2">
                 <div class="pizza-card">
-                    <div class="pizza-icon">🌶️</div>
+                    <span class="pizza-icon">🌶️</span>
                     <h3>Pepperoni</h3>
                     <p>Pepperoni italiano importado y queso extra fundido. <span class="highlight">Para los amantes del picante perfecto.</span></p>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6 fade-up delay-3">
                 <div class="pizza-card">
-                    <div class="pizza-icon">🧀</div>
+                    <span class="pizza-icon">🧀</span>
                     <h3>Muzzarella</h3>
                     <p>Muzzarella fresca de búfala y salsa de tomate San Marzano. <span class="highlight">Clásico napolitano original.</span></p>
                 </div>
@@ -307,27 +1176,31 @@
     </div>
 </section>
 
-<section class="section-cards" style="background: linear-gradient(135deg, #f9f7f4 0%, #f2ede5 100%);">
-    <div class="cards-container">
-        <div class="section-header">
+<!-- ============================================================
+REVIEWS (fondo con textura sutil)
+============================================================ -->
+<section class="py-5" style="background: #f2ede5;">
+    <div class="container">
+        <div class="text-center fade-up">
             <h2 class="section-title">💬 Lo que dicen nuestros clientes</h2>
+            <p class="section-sub">Opiniones reales de quienes nos eligen día a día</p>
         </div>
-        <div class="row g-4 justify-content-center">
-            <div class="col-lg-4 col-md-6">
+        <div class="row g-4 mt-4 justify-content-center">
+            <div class="col-lg-4 col-md-6 fade-up delay-1">
                 <div class="review-card">
                     <h4>María González</h4>
                     <p>"La mejor pizza que probé en años. ¡Imposible resistirse!"</p>
                     <div class="review-score">⭐ 10/10</div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6 fade-up delay-2">
                 <div class="review-card">
                     <h4>Carlos Ramírez</h4>
                     <p>"El pepperoni está perfecto. ¡Volveré seguro!"</p>
                     <div class="review-score">⭐ 9/10</div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6 fade-up delay-3">
                 <div class="review-card">
                     <h4>Laura Pérez</h4>
                     <p>"Calidad napolitana auténtica. ¡Recomendadísima!"</p>
@@ -338,130 +1211,125 @@
     </div>
 </section>
 
-<!-- 🗺️ NUEVA SECCIÓN MAPA GOOGLE (AGREGADA AL FINAL) -->
-<!-- 📱 CONTACTO Y MAPA (VERSION PROFESIONAL) -->
+<!-- ============================================================
+CONTACTO + MAPA (sección combinada)
+============================================================ -->
 <section class="contact-section">
-    <div class="cards-container">
-        <div class="section-header">
-            <h2 class="section-title">📍 Encontrá tu Local Más Cercano</h2>
-            <p class="mt-3" style="opacity: 0.9;">Visitanos o pedí delivery a cualquier zona</p>
-        </div>
-        
-        <div class="row g-4 align-items-center">
-            <!-- INFO DE CONTACTO -->
-            <div class="col-lg-5">
-                <div class="contact-info">
-                    <h3 class="mb-4" style="color: var(--dorado-claro);">
-                        <i class="bi bi-chat-dots-fill me-2"></i>Pedí por WhatsApp
-                    </h3>
-                    
-                    <div class="info-cards">
+    <div class="container">
+        <div class="row g-4 align-items-stretch">
+            <!-- Columna izquierda: info de contacto -->
+            <div class="col-lg-5 fade-up">
+                <div class="contact-info h-100 d-flex flex-column">
+                    <h3><i class="bi bi-chat-dots-fill me-2" style="color: var(--dorado-puro);"></i>Pedí por WhatsApp</h3>
+                    <div class="info-cards flex-grow-1">
                         <div class="info-card-item">
-                            <div class="info-icon">
-                                <i class="bi bi-telephone-fill"></i>
-                            </div>
+                            <div class="info-icon"><i class="bi bi-telephone-fill"></i></div>
                             <div class="info-text">
                                 <h4>299-123-4567</h4>
                                 <p>Llamadas & WhatsApp 24/7</p>
                             </div>
                         </div>
-                        
                         <div class="info-card-item">
-                            <div class="info-icon">
-                                <i class="bi bi-clock-fill"></i>
-                            </div>
+                            <div class="info-icon"><i class="bi bi-clock-fill"></i></div>
                             <div class="info-text">
-                                <h4>11:00 - 00:00</h4>
+                                <h4>11:00 – 00:00</h4>
                                 <p>Todos los días</p>
                             </div>
                         </div>
-                        
                         <div class="info-card-item">
-                            <div class="info-icon">
-                                <i class="bi bi-truck"></i>
-                            </div>
+                            <div class="info-icon"><i class="bi bi-truck"></i></div>
                             <div class="info-text">
-                                <h4>ENVÍO Gratis</h4>
+                                <h4>Envío gratis</h4>
                                 <p>En 30 minutos</p>
                             </div>
                         </div>
                     </div>
-                    
-                    <a href="https://wa.me/5492991234567?text=🍕%20Hola!%20Quiero%20pedir%20pizza" 
-                       class="btn-pedido btn-lg w-100 mt-4">
-                        <i class="bi bi-whatsapp me-2"></i>Pedir Ahora
-                    </a>
-                </div>
+                    <a href="https://wa.me/5492991234567?text=🍕%20Hola!%20Quiero%20pedir%20pizza"
+                    class="btn-oro w-100 mt-3 text-center justify-content-center">
+                    <i class="bi bi-whatsapp"></i> Pedir ahora
+                </a>
             </div>
-            
-            <!-- MAPA -->
-            <div class="col-lg-7">
-                <div class="map-wrapper">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3316.068962592179!2d-67.99512368509999!3d-38.940123979599!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzhkwrDU2JzI0LjciUyA2N8KwNTknNDMuNyJX!5e0!3m2!1ses!2sar!4v1699999999999!5m2!1ses!2sar" 
-                            class="map-iframe" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                    <div class="map-overlay">
-                        <i class="bi bi-geo-alt-fill"></i>
-                        <span>Ver en Google Maps</span>
-                    </div>
-                </div>
+        </div>
+
+        <!-- Columna derecha: mapa -->
+        <div class="col-lg-7 fade-up delay-1">
+            <div class="map-wrapper h-100">
+                <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3316.068962592179!2d-67.99512368509999!3d-38.940123979599!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzhkwrDU2JzI0LjciUyA2N8KwNTkn43KyJX!5e0!3m2!1ses!2sar!4v1699999999999"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            <div class="map-overlay">
+                <i class="bi bi-geo-alt-fill"></i>
+                <span>Ver en Google Maps</span>
             </div>
         </div>
     </div>
+</div>
+</div>
 </section>
 
-<!-- 📍 NUESTROS LOCALES (VERSÍON PROFESIONAL) -->
-<section class="section-cards" style="background: var(--blanco);">
-    <div class="cards-container">
-        <div class="section-header">
-            <h2 class="section-title">📍 Nuestros Locales</h2>
-            <p class="text-muted mt-3">Visitanos en cualquiera de nuestras sedes</p>
+<!-- ============================================================
+LOCALES (tres ubicaciones)
+============================================================ -->
+<section class="py-5" style="background: var(--beige-fondo);">
+    <div class="container">
+        <div class="text-center fade-up">
+            <h2 class="section-title">📍 Nuestros locales</h2>
+            <p class="section-sub">Tres puntos para acercarte a la mejor pizza</p>
         </div>
-        <div class="row g-4 justify-content-center">
-            <div class="col-lg-4 col-md-6">
+        <div class="row g-4 mt-4 justify-content-center">
+            <div class="col-lg-4 col-md-6 fade-up delay-1">
                 <div class="location-card">
-                    <div class="location-icon">
-                        <i class="bi bi-shop"></i>
-                    </div>
+                    <div class="location-icon"><i class="bi bi-shop"></i></div>
                     <h4>Centro Comercial</h4>
-                    <p class="mb-0">Av. Principal 123<br>Cipolletti, Río Negro</p>
-                    <a href="https://wa.me/5492991234567?text=📍%20Estoy%20en%20Centro%20Comercial" 
-                       class="btn btn-sm btn-outline-danger mt-3 rounded-pill">
-                        <i class="bi bi-chat-dots me-1"></i>Contactar
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="location-card">
-                    <div class="location-icon">
-                        <i class="bi bi-building"></i>
-                    </div>
-                    <h4>Local Principal</h4>
-                    <p class="mb-0">San Martín 734<br>Cipolletti Centro</p>
-                    <a href="https://wa.me/5492991234567?text=📍%20Estoy%20en%20San%20Martín%20734" 
-                       class="btn btn-sm btn-outline-danger mt-3 rounded-pill">
-                        <i class="bi bi-chat-dots me-1"></i>Contactar
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="location-card">
-                    <div class="location-icon">
-                        <i class="bi bi-geo-alt"></i>
-                    </div>
-                    <h4>Zona Norte</h4>
-                    <p class="mb-0">Av. Norte 456<br>Labardy</p>
-                    <a href="https://wa.me/5492991234567?text=📍%20Estoy%20en%20Zona%20Norte" 
-                       class="btn btn-sm btn-outline-danger mt-3 rounded-pill">
-                        <i class="bi bi-chat-dots me-1"></i>Contactar
-                    </a>
-                </div>
+                    <p>Av. Principal 123<br />Cipolletti, Río Negro</p>
+                    <a href="https://wa.me/5492991234567?text=📍%20Estoy%20en%20Centro%20Comercial"
+                    class="btn-outline-rojo mt-3">
+                    <i class="bi bi-chat-dots"></i> Contactar
+                </a>
             </div>
         </div>
+        <div class="col-lg-4 col-md-6 fade-up delay-2">
+            <div class="location-card">
+                <div class="location-icon"><i class="bi bi-building"></i></div>
+                <h4>Local Principal</h4>
+                <p>San Martín 734<br />Cipolletti Centro</p>
+                <a href="https://wa.me/5492991234567?text=📍%20Estoy%20en%20San%20Martín%20734"
+                class="btn-outline-rojo mt-3">
+                <i class="bi bi-chat-dots"></i> Contactar
+            </a>
+        </div>
     </div>
+    <div class="col-lg-4 col-md-6 fade-up delay-3">
+        <div class="location-card">
+            <div class="location-icon"><i class="bi bi-geo-alt"></i></div>
+            <h4>Zona Norte</h4>
+            <p>Av. Norte 456<br />Labardy</p>
+            <a href="https://wa.me/5492991234567?text=📍%20Estoy%20en%20Zona%20Norte"
+            class="btn-outline-rojo mt-3">
+            <i class="bi bi-chat-dots"></i> Contactar
+        </a>
+    </div>
+</div>
+</div>
+</div>
 </section>
 
+<!-- ============================================================
+FOOTER (opcional, muy limpio)
+============================================================ -->
+<footer class="py-4 text-center text-muted small" style="border-top: 1px solid rgba(0,0,0,0.05);">
+    <div class="container">
+        <p class="mb-0">© 2026 Pizzería Don Luigi · Hecho con <i class="bi bi-heart-fill" style="color: var(--rojo-profundo);"></i> en Cipolletti</p>
+    </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js">
+</script>
+
+</body>
+</html>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

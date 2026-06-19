@@ -9,7 +9,7 @@ export class FavoritosService {
 
   prodFavoritos: Producto[] = [];
 
-  constructor(private carritoService: CarritoService) {}
+  constructor(private carritoService: CarritoService) { }
 
   agregarFavorito(p: Producto) {
     const productoExistente = this.prodFavoritos.find(prod => prod.id === p.id);

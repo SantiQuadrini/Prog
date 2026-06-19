@@ -11,5 +11,5 @@
 .carousel-item img {
   width: 500px;
   height: 500px;
-  object-fit: cover; /* evita que se deformen */
-}
+  object-fit: cover;
+  margin: auto;}
