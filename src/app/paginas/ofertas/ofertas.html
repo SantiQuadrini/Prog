@@ -3,14 +3,14 @@
     <div class="producto-card" [class.inactivo]="!p.disponibilidad">
       <div class="producto-imagen">
         <img src="{{p.imagen}}" alt="{{p.nombre}}">
-        
       </div>
       
       <div class="producto-info">
         <h3 class="producto-nombre">{{p.nombre}}</h3>
       
+        <!-- PRECIO MODIFICADO - SIN TACHADO -->
         <div class="producto-precio-wrapper">
-          <span class="producto-precio-old">${{p.precio}}</span>
+          <span class="producto-precio">${{p.precio}}</span>
         </div>
         
         <p class="producto-descripcion">{{p.informacion}}</p>
