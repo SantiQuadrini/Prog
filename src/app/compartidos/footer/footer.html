@@ -1,69 +1,91 @@
 <!-- Footer profesional -->
 <footer class="py-5" 
-        style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); 
-               border-top: 1px solid #dee2e6; 
-               box-shadow: 0 -2px 15px rgba(0,0,0,0.05);">
+        style="background: linear-gradient(135deg, #4a2c1b 0%, #5a3522 50%, #3d2317 100%); 
+               border-top: 3px solid #c0392b; 
+               box-shadow: 0 -4px 30px rgba(0,0,0,0.2);">
   
   <div class="container">
     
     <div class="row align-items-center">
       
-      <!-- Historia (columna izquierda) -->
+      <!-- Historia -->
       <div class="col-lg-6 col-md-12 mb-4">
         <div class="card border-0 shadow-sm h-100" 
-             style="background: #ffffff; border-radius: 12px; overflow: hidden;">
+             style="background: rgba(255,255,255,0.95); border-radius: 16px; overflow: hidden;">
           <div class="card-body p-4">
-            <h6 class="fw-bold mb-3" style="color: #2c3e50;">🍕 Nuestra Historia</h6>
-            <p class="text-muted small lh-sm" style="line-height: 1.6;">
+            <h6 class="fw-bold mb-3" style="color: #4a2c1b; font-family: 'Playfair Display', serif;">
+              🍕 Nuestra Historia
+            </h6>
+            <p class="text-muted small lh-sm" style="line-height: 1.6; color: #5a4a3a !important;">
               Don Luigi comenzó en Torre San Patricio, Italia. Aprendió de su abuela que 
-              cada pizza lleva <strong>calma y cariño</strong>. Hoy, cada porción cuenta 
+              cada pizza lleva <strong style="color: #c0392b;">calma y cariño</strong>. Hoy, cada porción cuenta 
               esa historia italiana en nuestro barrio.
             </p>
           </div>
         </div>
       </div>
 
-      <!-- Enlaces y contacto (columna derecha) -->
+      <!-- Enlaces -->
       <div class="col-lg-3 col-md-6 mb-4">
-        <h6 class="fw-bold mb-3" style="color: #2c3e50;">Navegación</h6>
+        <h6 class="fw-bold mb-3" style="color: #f8f4f0; font-family: 'Playfair Display', serif;">
+          Navegación
+        </h6>
         <ul class="list-unstyled">
           <li class="mb-2">
-            <a href="/" class="text-decoration-none" style="color: #495057; font-weight: 500; transition: color 0.3s ease;">
+            <a routerLink="/inicio" class="text-decoration-none" 
+               style="color: #e8ddd0; font-weight: 400; transition: all 0.3s ease;">
               Inicio
             </a>
           </li>
           <li class="mb-2">
-            <a routerLink="/Productos" class="text-decoration-none" style="color: #495057; font-weight: 500; transition: color 0.3s ease;">
+            <a routerLink="/Productos" class="text-decoration-none" 
+               style="color: #e8ddd0; font-weight: 400; transition: all 0.3s ease;">
               Menú de Pizzas
             </a>
           </li>
           <li class="mb-2">
-            <a routerLink="/contactos" class="text-decoration-none" style="color: #495057; font-weight: 500; transition: color 0.3s ease;">
+            <a routerLink="/contactos" class="text-decoration-none" 
+               style="color: #e8ddd0; font-weight: 400; transition: all 0.3s ease;">
               Contacto
+            </a>
+          </li>
+          <li class="mb-2">
+            <a routerLink="/registro" class="text-decoration-none" 
+               style="color: #e8ddd0; font-weight: 400; transition: all 0.3s ease;">
+              Registrarse
             </a>
           </li>
         </ul>
       </div>
 
-      <!-- Copyright y redes (columna final) -->
+      <!-- Copyright y redes -->
       <div class="col-lg-3 col-md-6 mb-4">
         <div class="text-end text-lg-start">
-          <p class="mb-3 small text-muted">
-            <strong>🍕 Pizzería Don Luigi</strong><br>
-            <span class="text-muted">© 2025 Todos los derechos reservados</span>
+          <p class="mb-3 small" style="color: #c4b5a6;">
+            <strong style="color: #f8f4f0;">🍕 Pizzería Don Luigi</strong><br>
+            <span style="color: #a89888;">© 2025 Todos los derechos reservados</span>
           </p>
           
           <div class="d-flex justify-content-end justify-content-lg-start gap-3">
-            <a href="https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2F%3Flocale%3Des_LA" class="btn btn-outline-secondary btn-sm shadow-sm px-3" 
-               style="border-radius: 50px; border: 1px solid #dee2e6;">
+            <a href="https://www.facebook.com/" target="_blank" 
+               class="btn btn-sm shadow-sm px-3" 
+               style="border-radius: 50px; border: 1px solid rgba(255,255,255,0.15); 
+                      background: rgba(255,255,255,0.08); color: #e8ddd0;
+                      transition: all 0.3s ease;">
               <i class="bi bi-facebook"></i>
             </a>
-            <a href="https://www.instagram.com/" class="btn btn-outline-secondary btn-sm shadow-sm px-3" 
-               style="border-radius: 50px; border: 1px solid #dee2e6;">
+            <a href="https://www.instagram.com/" target="_blank" 
+               class="btn btn-sm shadow-sm px-3" 
+               style="border-radius: 50px; border: 1px solid rgba(255,255,255,0.15); 
+                      background: rgba(255,255,255,0.08); color: #e8ddd0;
+                      transition: all 0.3s ease;">
               <i class="bi bi-instagram"></i>
             </a>
-            <a href="https://web.whatsapp.com/" class="btn btn-outline-secondary btn-sm shadow-sm px-3" 
-               style="border-radius: 50px; border: 1px solid #dee2e6;">
+            <a href="https://web.whatsapp.com/" target="_blank" 
+               class="btn btn-sm shadow-sm px-3" 
+               style="border-radius: 50px; border: 1px solid rgba(255,255,255,0.15); 
+                      background: rgba(255,255,255,0.08); color: #e8ddd0;
+                      transition: all 0.3s ease;">
               <i class="bi bi-whatsapp"></i>
             </a>
           </div>
@@ -72,12 +94,10 @@
 
     </div>
 
-    <!-- Línea separadora final -->
-    <hr class="my-4" style="border-color: #dee2e6;">
+    <hr class="my-4" style="border-color: rgba(255,255,255,0.1);">
 
-    <!-- Slogan final -->
     <div class="text-center">
-      <p class="mb-0 small text-muted fw-semibold">
+      <p class="mb-0 small fw-semibold" style="color: #c4b5a6; font-family: 'Playfair Display', serif; font-style: italic;">
         "La pizza no es solo comida, es memoria"
       </p>
     </div>

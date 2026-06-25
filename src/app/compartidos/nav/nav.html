@@ -31,11 +31,11 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link active" routerLink="/contactos" routerLinkActive="active" style="color: #e74c3c; font-weight: 600; font-size: 0.95rem; padding: 8px 20px; border-radius: 12px; transition: all 0.3s ease; background: rgba(231,76,60,0.08); position: relative;">
+                    <a class="nav-link" routerLink="/contactos" routerLinkActive="active" style="color: #2c3e50; font-weight: 500; font-size: 0.95rem; padding: 8px 20px; border-radius: 12px; transition: all 0.3s ease; position: relative;">
                         ✉️ Contacto
+                        <span style="position: absolute; bottom: 4px; left: 50%; transform: translateX(-50%); width: 0; height: 2px; background: linear-gradient(90deg, #e74c3c, #c0392b); border-radius: 2px; transition: all 0.3s ease;"></span>
                     </a>
                 </li>
-
             </ul>
 
             <div style="display: flex; align-items: center; gap: 8px;">
@@ -46,55 +46,17 @@
                     <span style="background: linear-gradient(135deg, #ff6b35, #e74c3c); color: white; font-size: 0.65rem; font-weight: 700; padding: 2px 8px; border-radius: 20px; min-width: 20px; text-align: center;">{{totalItems}}</span>
                 </a>
 
-                <a routerLink="/Favoritos" class="btn-fav" onclick="toggleFavorito('001')" style="background: transparent; border: none; font-size: 1.4rem; padding: 6px 12px; cursor: pointer; transition: all 0.3s ease; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; color: #e74c3c; line-height: 1;">
-                    <span id="texto-fav-001">❤️</span>
+                <a routerLink="/Favoritos" class="btn-fav" style="background: transparent; border: none; font-size: 1.4rem; padding: 6px 12px; cursor: pointer; transition: all 0.3s ease; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; color: #e74c3c; line-height: 1;">
+                    ❤️
                 </a>
 
-                <button class="btn" data-bs-toggle="modal" data-bs-target="#loginModal" style="background: linear-gradient(135deg, #2c3e50, #34495e); border: none; border-radius: 12px; padding: 8px 22px; color: white; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 8px;">
+                <a routerLink="/Registro" class="btn" style="background: linear-gradient(135deg, #2c3e50, #34495e); border: none; border-radius: 12px; padding: 8px 22px; color: white; font-weight: 600; font-size: 0.9rem; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 8px; text-decoration: none;">
                     <i class="bi bi-person"></i>
                     Iniciar sesión
-                </button>
+                </a>
 
             </div>
 
         </div>
     </div>
 </nav>
-
-<div class="modal fade" id="loginModal" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content" style="border: none; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.15); overflow: hidden;">
-
-            <div class="modal-header" style="border: none; padding: 1.5rem 1.5rem 0.5rem 1.5rem;">
-                <h5 class="modal-title fw-bold" style="color: #ff6a00;">Iniciar sesión</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-
-            <div class="modal-body" style="padding: 0.5rem 1.5rem 1rem 1.5rem;">
-                <form>
-
-                    <div class="mb-4">
-                        <label class="form-label fw-semibold" style="color: #495057; margin-bottom: 0.5rem;">Email</label>
-                        <input type="email" class="form-control" placeholder="ejemplo@gmail.com" style="border: none; border-radius: 12px; padding: 0.6rem 1rem; background: #f8f9fa; transition: all 0.3s ease;">
-                    </div>
-
-                    <div class="mb-4">
-                        <label class="form-label fw-semibold" style="color: #495057; margin-bottom: 0.5rem;">Contraseña</label>
-                        <input type="password" class="form-control" placeholder="********" style="border: none; border-radius: 12px; padding: 0.6rem 1rem; background: #f8f9fa; transition: all 0.3s ease;">
-                    </div>
-
-                    <button type="submit" class="btn w-100 fw-semibold" style="background: linear-gradient(135deg, #ff6b35, #e74c3c); border: none; border-radius: 12px; padding: 0.7rem; color: white; font-weight: 600; transition: all 0.3s ease;">Entrar</button>
-
-                </form>
-            </div>
-
-            <div class="modal-footer" style="border: none; padding: 0.5rem 1.5rem 1.5rem 1.5rem;">
-                <small class="text-muted">
-                    ¿No tienes cuenta?
-                    <span style="color: #ff4d00; font-weight: 500; cursor: pointer; transition: all 0.3s ease;">Regístrate</span>
-                </small>
-            </div>
-
-        </div>
-    </div>
-</div>

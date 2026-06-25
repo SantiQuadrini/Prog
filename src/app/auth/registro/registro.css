@@ -1,0 +1,190 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.registro-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fff8f0 0%, #fef3e8 100%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 2rem 1rem;
+}
+
+.registro-header {
+  text-align: center;
+  padding: 2rem 0;
+  background: linear-gradient(135deg, #4a2c1b 0%, #5a3522 50%, #3d2317 100%);
+  border-radius: 20px;
+  margin-bottom: 2rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.registro-header h1 {
+  font-size: 2.5rem;
+  color: #f8f4f0;
+  margin-bottom: 0.5rem;
+}
+
+.registro-header p {
+  font-size: 1.2rem;
+  color: #e8ddd0;
+}
+
+.registro-card {
+  max-width: 500px;
+  margin: 0 auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+.registro-card h2 {
+  text-align: center;
+  color: #4a2c1b;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  color: #4a2c1b;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #e8d5c4;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #fdf8f3;
+  color: #4a2c1b;
+  font-family: inherit;
+}
+
+.form-control:focus {
+  border-color: #e74c3c;
+  box-shadow: 0 0 0 4px rgba(231, 76, 60, 0.08);
+  outline: none;
+  background: white;
+}
+
+.checkbox-group {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  cursor: pointer;
+  accent-color: #e74c3c;
+}
+
+.checkbox-group label {
+  color: #4a2c1b;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.checkbox-group a {
+  color: #e74c3c;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.checkbox-group a:hover {
+  text-decoration: underline;
+  color: #c0392b;
+}
+
+.btn-registro {
+  width: 100%;
+  padding: 14px 24px;
+  background: linear-gradient(135deg, #e67e22, #f39c12);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  box-shadow: 0 4px 20px rgba(243, 156, 18, 0.3);
+}
+
+.btn-registro:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(243, 156, 18, 0.4);
+  background: linear-gradient(135deg, #f39c12, #e67e22);
+}
+
+.btn-registro:active {
+  transform: translateY(0);
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #f0e4d8;
+}
+
+.login-link a {
+  color: #e74c3c;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+  color: #c0392b;
+}
+
+@media (max-width: 768px) {
+  .registro-header h1 {
+    font-size: 2rem;
+  }
+  
+  .registro-card {
+    padding: 1.5rem;
+  }
+  
+  .registro-card h2 {
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .registro-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .registro-header p {
+    font-size: 1rem;
+  }
+  
+  .registro-card {
+    padding: 1rem;
+  }
+  
+  .form-control {
+    padding: 10px 14px;
+    font-size: 0.9rem;
+  }
+}
